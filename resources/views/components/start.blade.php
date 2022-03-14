@@ -2,8 +2,8 @@
 <html lang="en">
 @include('components.head')
 <body>
-    <div class="container">
-        <div class="row justify-content-center mt-5">
+    <div class="container" id="terms">
+        <div class="row justify-content-center mt-4">
             <div class="col-md-4 d-flex align-items-center">
                     <img src="images/start.png" alt="" width="100%">
             </div>
@@ -31,11 +31,11 @@
         <p class="text-center autorizacion">¿Autoriza al Municipio de Medellín para realizar tratamiento de sus datos personales?</p>
         <div class="d-flex align-items-baseline justify-content-center autorizacion-check">
             <div class="mr-2">
-                <input class="autorization" type="checkbox" >
+                <input class="autorization" name="si" type="checkbox" >
                 <label for="Si">SI</label>
             </div>
             <div>
-                <input class="autorization" type="checkbox">
+                <input class="autorization" name="no" type="checkbox">
                 <label for="No">NO</label>
             </div>
         </div>
