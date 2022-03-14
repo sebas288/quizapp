@@ -18,13 +18,35 @@ function timer() {
         }
     }, 1000);
 }
-timer();
+
+const terms = document.getElementById("terms");
+const tabs = document.getElementById("parentTab");
 
 //click in elements the DOM
 document.addEventListener(
     "click",
     function (event) {
-        // next step
+        //create object for responses
+        if (event.target.matches(".form-check-input")) {
+            window.localStorage.setItem(
+                event.target.dataset.step,
+                JSON.stringify({
+                    name: event.target.name,
+                    value: event.target.value,
+                    label: event.target.dataset.label,
+                    point: event.target.dataset.value,
+                })
+            );
+        }
+        //change of experience
+        if (event.target.matches(".autorization")) {
+            if (event.target.name == "si") {
+                terms.classList.add("d-none");
+                tabs.classList.remove("d-none");
+                timer();
+            }
+        }
+        // handle tabs for step
         if (event.target.matches(".next") || event.target.matches(".back")) {
             event.preventDefault();
             const step = event.target.id.replace("step_", "");
@@ -56,7 +78,11 @@ for (let r = 0; r < selectedSteps.length; r++) {
     const element = selectedSteps[r];
     for (var i = 0; i < element.length; i++) {
         element[i].onclick = function (e) {
-            deSelect(e.target.classList[1]?e.target.classList[1]:e.target.classList[0]);
+            deSelect(
+                e.target.classList[1]
+                    ? e.target.classList[1]
+                    : e.target.classList[0]
+            );
             e.target.checked = true;
         };
     }
