@@ -9,7 +9,7 @@ function timer() {
             document.getElementById("minDisplay").innerHTML =
                 parseInt(min) + "";
         document.getElementById("safeTimerDisplay").innerHTML =
-            parseInt(time / 60) < 1 ? ":"+ time + "" : ":" + seconds + "";
+            parseInt(time / 60) < 1 ? ":" + time + "" : ":" + seconds + "";
 
         sec--;
         time++;
@@ -26,6 +26,10 @@ const tabs = document.getElementById("parentTab");
 document.addEventListener(
     "click",
     function (event) {
+        //end questions
+        if (event.target.matches(".end-questions")) {
+            alert();
+        }
         //create object for responses
         if (event.target.matches(".form-check-input")) {
             window.localStorage.setItem(

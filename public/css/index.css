@@ -44,6 +44,13 @@ html, body {
     height: 30px;
     width: 30px;
 }
+input[type='text']{
+    width: 100% !important;
+}
+input[type='text'] label{
+    margin-top: 15px;
+    margin-left: -18px;
+}
 .form-check-label{
     margin-left: 20px;
 }

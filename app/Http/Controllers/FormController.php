@@ -7,6 +7,37 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
     public function index(){
+        $finalForm = [
+            "step_person" => [
+                "id" => "step_person",
+                "title" => "Datos personales",
+                "show" => "d-block",
+                "btnEnd" => false,
+                "fields" => [
+                    [
+                        "field" => "task_2",
+                        "type" => "text",
+                        "class" => "step_1",
+                        "data" => "false",
+                        "label" => "Nombre,",
+                    ],
+                    [
+                        "field" => "task_3",
+                        "type" => "text",
+                        "class" => "step_1",
+                        "data" => "false",
+                        "label" => "Check me out",
+                    ],
+                    [
+                        "field" => "task_4",
+                        "type" => "text",
+                        "class" => "step_1",
+                        "data" => "false",
+                        "label" => "informacion",
+                    ],
+                ],
+            ],
+        ];
         $steps = [
             "step_1" => [
                 "id" => "step_1",
@@ -76,7 +107,8 @@ class FormController extends Controller
             ],
         ];
         return view('welcome', [
-            'steps' => $steps
+            'steps' => $steps,
+            'finalForm' => $finalForm,
         ]);
     }
 }
