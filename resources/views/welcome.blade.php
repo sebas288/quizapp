@@ -26,20 +26,12 @@
                     'display' => "d-none",
                     'steps' => $steps
                 ])
-                <div class="{{-- d-none --}}" id="finalForm">
-                
-                    <div class="container">
-                        <div class="row justify-content-center mt-4">
-                            <div class="col-md-10">
-                                @include('components.tabs', [
-                                    'id' => "finalForm",
-                                    'display' => "d-block",
-                                    'steps' => $finalForm
-                                ])
-                            </div>
-                        </div>
-                    </div>
-                    {{-- //forms --}} 
+                <div class="d-none" id="finalForm">
+                    @include('components.tabs', [
+                        'id' => "finalForm",
+                        'display' => "d-block",
+                        'steps' => $finalForm
+                    ])
                 </div>
 
             </div>

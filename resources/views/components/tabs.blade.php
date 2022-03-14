@@ -1,29 +1,4 @@
-<div class="{{ $display }}" id="parentTab">
-    <div class="container ">
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-6 d-flex align-items-center">
-                <div class="container p-0">
-                    <h1>Actividad de autoevaluación</h1>
-                    <h3>Afianzando saberes *</h3>
-                    <i>Tipo de actividad: Opción múltiple</i>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex align-items-center justify-content-end">
-                <img src="https://unidadvirtual.itm.edu.co/Leidy/Unidad2/recursos/img/imagen-actividad-5.png" alt="" width="70%">
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-10 d-flex ">
-                <h3>
-                    <span id="minDisplay"></span>
-                    <span id="safeTimerDisplay"></span>
-                </h3>
-            </div>
-        </div>
-    </div>
+<div class="{{ $display }} mt-5" id="parentTab">
     <form class="mb-4">
         <div class="content row justify-content-center">
             @foreach ($steps as $field)
