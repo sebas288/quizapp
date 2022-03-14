@@ -69,15 +69,17 @@
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                             <div class="d-flex align-items-end justify-content-end">
-                                <button
-                                    type="submit" class="btn btn-primary back mr-2"
-                                    id="{{ $field["id"] }}"
-                                >Atras</button>
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary next"
-                                    id="{{ $field["id"] }}"
-                                >Siguiente</button>
+                                @if ($field["changeSteps"])    
+                                    <button
+                                        type="submit" class="btn btn-primary back mr-2"
+                                        id="{{ $field["id"] }}"
+                                    >Atras</button>
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary next"
+                                        id="{{ $field["id"] }}"
+                                    >Siguiente</button>
+                                @endif
                                 @if ($field["btnEnd"])
                                 <button
                                     type="submit"

@@ -53,7 +53,6 @@ document.addEventListener(
                     "Puntos: " + points;
                 alert("Puntaje: " + points);
                 document.getElementById("counter").classList.add("d-none");
-                document.getElementById("counter").remove;
             }
         }
         //create object for responses
