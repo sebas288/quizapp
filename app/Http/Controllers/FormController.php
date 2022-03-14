@@ -12,6 +12,7 @@ class FormController extends Controller
                 "id" => "step_1",
                 "title" => "Preguntas step 1",
                 "show" => "d-block",
+                "btnEnd" => false,
                 "fields" => [
                     [
                         "field" => "task_1",
@@ -47,6 +48,7 @@ class FormController extends Controller
                 "id" => "step_2",
                 "title" => "Preguntas step 2",
                 "show" => "d-none",
+                "btnEnd" => false,
                 "fields" => [
                     [
                         "field" => "name",
@@ -68,6 +70,7 @@ class FormController extends Controller
                 "id" => "step_3",
                 "title" => "Preguntas step 3",
                 "show" => "d-none",
+                "btnEnd" => true,
                 "fields" => [
                     [
                         "field" => "name",
