@@ -93,10 +93,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </form>
+                            @endforeach
+                        </div>
+                    </form>
+                </div>
+                <footer>
+                    <small>Todos los derechos reservados</small>
+                </footer>
             </div>
         </div>
         @include('components.footer')
