@@ -6,20 +6,24 @@
                     class="col-md-8 _step {{ $field["show"] }}"
                     id="{{ $field["id"] }}"
                 >
-                    <h1>{{ $field["title"] }}</h1> <hr />
+                    <h1>{{ $field["title"] }}</h1> 
+                    <span id="point"></span>
+                    <hr />
                     <div class="row">
                         @foreach ($field["fields"] as $input)
                         @switch($input["type"])
                             @case("text")    
+                            @case("email")    
+                            @case("date")    
                                 <div class="col-md-6">
                                     <div class="form-group form-check">
                                         <label
-                                            class="form-check-label"
+                                            class=""
                                             for="exampleCheck1"
                                         >{{ $input["label"] }}</label>
                                         <input
                                             type="{{ $input["type"] }}"
-                                            class="{{ $input["class"] }}"
+                                            class="form-control {{ $input["class"] }}"
                                             id="{{ $input["field"] }}"
                                             name="{{ $input["field"] }}"
                                             data-step="{{ $field["id"] }}"

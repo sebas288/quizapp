@@ -21,6 +21,7 @@ function timer() {
 
 const terms = document.getElementById("terms");
 const tabs = document.getElementById("parentTab");
+const finalForm = document.getElementById("finalForm");
 
 //click in elements the DOM
 document.addEventListener(
@@ -28,7 +29,29 @@ document.addEventListener(
     function (event) {
         //end questions
         if (event.target.matches(".end-questions")) {
-            alert();
+            event.preventDefault();
+            tabs.classList.add("d-none");
+            finalForm.classList.remove("d-none");
+
+            const step_1 = JSON.parse(window.localStorage.getItem("step_1"));
+            const step_2 = JSON.parse(window.localStorage.getItem("step_2"));
+            const step_3 = JSON.parse(window.localStorage.getItem("step_3"));
+
+            if (
+                Object.keys(step_1).length &
+                Object.keys(step_2).length &
+                Object.keys(step_3).length
+            ) {
+                const finalData = [step_1, step_2, step_3];
+                let points = 0;
+                finalData.forEach((element) => {
+                    console.log(element);
+                    points = points + parseInt(element.point);
+                });
+                console.log(points);
+                document.getElementById("points").innerHTML =
+                    "Puntos: " + points;
+            }
         }
         //create object for responses
         if (event.target.matches(".form-check-input")) {
