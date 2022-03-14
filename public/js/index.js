@@ -7,9 +7,9 @@ function timer() {
         let seconds = time - customParse;
         if (min >= 1)
             document.getElementById("minDisplay").innerHTML =
-                parseInt(min) + " Minuto(s) con ";
+                parseInt(min) + "";
         document.getElementById("safeTimerDisplay").innerHTML =
-            parseInt(time / 60) < 1 ? time + " segundos" : seconds + "segundos";
+            parseInt(time / 60) < 1 ? ":"+ time + "" : ":" + seconds + "";
 
         sec--;
         time++;

@@ -23,23 +23,10 @@
                 @include('components.start')
 
                 <div class="d-none" id="parentTab">
-                    <div class="container ">
-                        <div class="row justify-content-center mt-4">
-                            <div class="col-md-6 d-flex align-items-center">
-                                <div class="container p-0">
-                                    <h1>Actividad de autoevaluación</h1>
-                                    <h3>Afianzando saberes *</h3>
-                                    <i>Tipo de actividad: Opción múltiple</i>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-flex align-items-center justify-content-end">
-                                <img src="https://unidadvirtual.itm.edu.co/Leidy/Unidad2/recursos/img/imagen-actividad-5.png" alt="" width="70%">
-                            </div>
-                        </div>
-                    </div>
-    
+
                     <div class="container">
-                        <div class="row justify-content-center mt-4">
+                        <div class="row justify-content-center mt-4 align-items-baseline">
+                            <h3>Tiempo: </h3>
                             <div class="col-md-10 d-flex ">
                                 <h3>
                                     <span id="minDisplay"></span>
@@ -49,14 +36,14 @@
                         </div>
                     </div>
                     <form class="mb-4">
-                        <div class="content row justify-content-center">
+                        <div class="content row justify-content-center text-center">
                             @foreach ($steps as $field)
                                 <div
                                     class="col-md-8 _step {{ $field["show"] }}"
                                     id="{{ $field["id"] }}"
                                 >
                                     <h1>{{ $field["title"] }}</h1> <hr />
-                                    <div class="row">
+                                    <div class="row m-5">
                                         @foreach ($field["fields"] as $input)
                                         <div class="col-md-6">
                                             <div class="form-group form-check">
@@ -79,7 +66,7 @@
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="col-md-12">
-                                            <div class="d-flex align-items-end justify-content-end">
+                                            <div class="d-flex align-items-end justify-content-center m-5">
                                                 <button
                                                     type="submit" class="btn btn-primary back mr-2"
                                                     id="{{ $field["id"] }}"

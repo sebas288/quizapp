@@ -39,6 +39,11 @@
                 <label for="No">NO</label>
             </div>
         </div>
+        <p style="border: solid 1px #e6e1e1;">De acuerdo con la Ley 1581 de 2012 de protección de los datos personales en Colombia autorizo al
+        municipio de Medellín identificado con NIT N.º 890.905.211-1, como Responsable para tratar mis datos
+        personales conforme a su Política de Tratamiento de Datos Personales, disponible en
+        www.medellin.gov.co , para que sean incluidos en sus bases de datos para los fines descritos en el
+        siguiente <a href="https://www.medellin.gov.co/" target="_blank">enlace </a>. </p>
     </div>
 </body>
 </html>
