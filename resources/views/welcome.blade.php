@@ -48,7 +48,7 @@
                         <div class="col-md-6 d-flex align-items-center">
                             <div class="container p-0">
                                 <h1>Actividad de autoevaluación</h1>
-                                <h3>Afianzando saberes</h3>
+                                <h3>Afianzando saberes *</h3>
                                 <i>Tipo de actividad: Opción múltiple</i>
                             </div>
                         </div>
