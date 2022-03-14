@@ -7,7 +7,7 @@
                     id="{{ $field["id"] }}"
                 >
                     <h1>{{ $field["title"] }}</h1> 
-                    <span id="point"></span>
+                    <strong id="score"></strong>
                     <hr />
                     <div class="row">
                         @foreach ($field["fields"] as $input)

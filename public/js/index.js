@@ -49,8 +49,9 @@ document.addEventListener(
                     points = points + parseInt(element.point);
                 });
                 console.log(points);
-                document.getElementById("points").innerHTML =
+                document.getElementById("score").innerHTML =
                     "Puntos: " + points;
+                alert("Puntaje: " + points);
             }
         }
         //create object for responses
