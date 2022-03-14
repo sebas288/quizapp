@@ -1,3 +1,25 @@
+function timer() {
+    let sec = 3600;
+    let time = 0;
+    let timer = setInterval(function () {
+        let min = time / 60;
+        let customParse = parseInt(time / 60) * 60;
+        let seconds = time - customParse;
+        if (min >= 1)
+            document.getElementById("minDisplay").innerHTML =
+                parseInt(min) + " Minuto(s) con ";
+        document.getElementById("safeTimerDisplay").innerHTML =
+            parseInt(time / 60) < 1 ? time + " segundos" : seconds + "segundos";
+
+        sec--;
+        time++;
+        if (sec < 0) {
+            clearInterval(timer);
+        }
+    }, 1000);
+}
+timer();
+
 //click in elements the DOM
 document.addEventListener(
     "click",

@@ -46,6 +46,16 @@
                     </div>
                 </div>
 
+                <div class="container">
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-md-10 d-flex ">
+                            <h3>
+                                <span id="minDisplay"></span>
+                                <span id="safeTimerDisplay"></span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
                 <form>
                     <div class="content row justify-content-center">
                         @foreach ($steps as $field)
@@ -63,6 +73,7 @@
                                                 class="form-check-input {{ $input["class"] }}"
                                                 id="{{ $input["field"] }}"
                                                 name="{{ $input["field"] }}"
+                                                data-value="{{ $input["data"] }}"
                                             >
                                             <label
                                                 class="form-check-label"
