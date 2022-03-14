@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <form>
+                    <form class="mb-4">
                         <div class="content row justify-content-center">
                             @foreach ($steps as $field)
                                 <div
@@ -97,9 +97,6 @@
                         </div>
                     </form>
                 </div>
-                <footer>
-                    <small>Todos los derechos reservados</small>
-                </footer>
             </div>
         </div>
         @include('components.footer')
