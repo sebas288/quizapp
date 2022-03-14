@@ -3,13 +3,13 @@
 @include('components.head')
 <body>
     <div class="container">
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center mt-5">
             <div class="col-md-4 d-flex align-items-center">
                     <img src="images/start.png" alt="" width="100%">
             </div>
         </div>
-        <h1 class="text-center">"Yo decido cuando, ¿Qué personaje eres?"</h1>
-        <p>Apreciados participantes: la estrategia de prevención de embarazo adolescente de Medellín, busca la
+        <h1 class="text-center m-4">"Yo decido cuando, ¿Qué personaje eres?"</h1>
+        <p><strong>Apreciados participantes:</strong> la estrategia de prevención de embarazo adolescente de Medellín, busca la
         disminución de los embarazos no deseados en la ciudad, además de velar por la garantía de los
         derechos sexuales y reproductivos y lo más importante acercar la oferta institucional, te invitamos a
         participar de este test tipo juego y el grupo de “Yo decido cuando” te mostrará las opciones de riesgo

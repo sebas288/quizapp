@@ -19,16 +19,7 @@
 
 
             <div class="container-fluid">
-                <div class="nav row">
-                    <div class="col-md-6">
-                        <ul>
-                            <li><a href="">Cuestionarios</a></li>
-                            <li><a href="">Informes</a></li>
-                            <li><a href="">Ofertas</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6"></div>
-                </div>
+                @include('components.navbar')
                 @include('components.start')
 
                 <div class="container">
@@ -102,11 +93,9 @@
                         @endforeach
                     </div>
                 </form>
-                <footer>
-                    <small>Todos los derechos reservados</small>
-                </footer>
             </div>
         </div>
+        @include('components.footer')
     </body>
     <script src="/js/index.js"></script>
 </html>

@@ -1,7 +1,7 @@
 html, body {
     background-color: #fff;
-    color: #636b6f;
-    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-family: "Quicksand", Arial, sans-serif;
     font-weight: 200;
     height: 100vh;
     margin: 0;
@@ -9,7 +9,7 @@ html, body {
 
 /* nav */
 .nav{
-    background-color: #ffdb13;
+    background-color: #DD3A71;
 }
 .nav ul{
     list-style: none;
@@ -21,8 +21,9 @@ html, body {
     margin-right: 10px;
 }
 .nav ul li a{
-    color: #b3348a;
+    color: white;
     text-decoration: none;
+    font-weight: 700;
 }
 
 /* content */
@@ -32,6 +33,7 @@ html, body {
 .content h1{
     color: #b3348a;
     font-weight: bold;
+    font-size: 45px;
 }
 .container h1{
     color: #b3348a;
@@ -48,8 +50,9 @@ html, body {
 
 /* footer */
 footer{
-    position: fixed;
-    bottom: 0;
+    background-color: #DD3A71;
+    text-align: center;
+
 }
 
 .autorizacion{
