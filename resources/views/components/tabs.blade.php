@@ -1,4 +1,15 @@
 <div class="{{ $display }} mt-5" id="parentTab">
+    <div class="container">
+        <div class="row justify-content-center mt-4 align-items-baseline">
+            <h3>Tiempo: </h3>
+            <div class="col-md-10 d-flex ">
+                <h3>
+                    <span id="minDisplay"></span>
+                    <span id="safeTimerDisplay"></span>
+                </h3>
+            </div>
+        </div>
+    </div>
     <form class="mb-4">
         <div class="content row justify-content-center">
             @foreach ($steps as $field)
