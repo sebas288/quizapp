@@ -1,8 +1,8 @@
 <div class="{{ $display }} mt-5" id="parentTab">
     <div class="container">
-        <div class="row justify-content-center mt-4 align-items-baseline">
-            <h3>Tiempo: </h3>
+        <div class="row justify-content-center mt-4 align-items-baseline">            
             <div class="col-md-10 d-flex ">
+                <h3 id="counter">Tiempo  </h3>
                 <h3>
                     <span id="minDisplay"></span>
                     <span id="safeTimerDisplay"></span>
@@ -26,6 +26,7 @@
                             @case("text")    
                             @case("email")    
                             @case("date")    
+                            @case("phone")    
                                 <div class="col-md-6">
                                     <div class="form-group form-check">
                                         <label

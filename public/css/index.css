@@ -54,12 +54,14 @@ input[type='text'] label{
 .form-check-label{
     margin-left: 20px;
 }
+#parentTab{
+    min-height: 450px;
+}
 
 /* footer */
 footer{
     background-color: #DD3A71;
     text-align: center;
-
 }
 
 .autorizacion{
