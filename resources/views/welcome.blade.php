@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Quiz app</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-        <!-- Boostrap -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-        <!-- Custom css -->
-        <link rel="stylesheet" href="/css/index.css">
-    </head>
+    @include('components.head')
     <body>
         <div class="">
             @if (Route::has('login'))
@@ -30,7 +17,7 @@
                 </div>
             @endif
 
-            
+
             <div class="container-fluid">
                 <div class="nav row">
                     <div class="col-md-6">
@@ -42,6 +29,7 @@
                     </div>
                     <div class="col-md-6"></div>
                 </div>
+                @include('components.start')
 
                 <div class="container">
                     <div class="row justify-content-center mt-4">
@@ -57,12 +45,12 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <form>
                     <div class="content row justify-content-center">
                         @foreach ($steps as $field)
-                            <div 
-                                class="col-md-8 _step {{ $field["show"] }}" 
+                            <div
+                                class="col-md-8 _step {{ $field["show"] }}"
                                 id="{{ $field["id"] }}"
                             >
                                 <h1>{{ $field["title"] }}</h1> <hr />
@@ -70,14 +58,14 @@
                                     @foreach ($field["fields"] as $input)
                                     <div class="col-md-6">
                                         <div class="form-group form-check">
-                                            <input 
-                                                type="{{ $input["type"] }}" 
-                                                class="form-check-input {{ $input["class"] }}" 
-                                                id="{{ $input["field"] }}" 
+                                            <input
+                                                type="{{ $input["type"] }}"
+                                                class="form-check-input {{ $input["class"] }}"
+                                                id="{{ $input["field"] }}"
                                                 name="{{ $input["field"] }}"
                                             >
-                                            <label 
-                                                class="form-check-label" 
+                                            <label
+                                                class="form-check-label"
                                                 for="exampleCheck1"
                                             >{{ $input["label"] }}</label>
                                         </div>
@@ -87,13 +75,13 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-12">
                                         <div class="d-flex align-items-end justify-content-end">
-                                            <button 
-                                                type="submit" class="btn btn-primary back mr-2" 
+                                            <button
+                                                type="submit" class="btn btn-primary back mr-2"
                                                 id="{{ $field["id"] }}"
                                             >Atras</button>
-                                            <button 
-                                                type="submit" 
-                                                class="btn btn-primary next" 
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary next"
                                                 id="{{ $field["id"] }}"
                                             >Siguiente</button>
                                         </div>

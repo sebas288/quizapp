@@ -27,13 +27,14 @@ const selectedSteps = [
     document.getElementsByClassName("step_1"),
     document.getElementsByClassName("step_2"),
     document.getElementsByClassName("step_3"),
+    document.getElementsByClassName("autorization"),
 ];
 //recorremos todos los check con la misma clase, les quitamos el checked y luego solo lo agremos al que estamos clickeando
 for (let r = 0; r < selectedSteps.length; r++) {
     const element = selectedSteps[r];
     for (var i = 0; i < element.length; i++) {
         element[i].onclick = function (e) {
-            deSelect(e.target.classList[1]);
+            deSelect(e.target.classList[1]?e.target.classList[1]:e.target.classList[0]);
             e.target.checked = true;
         };
     }
