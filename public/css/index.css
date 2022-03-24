@@ -9,7 +9,7 @@ html, body {
 
 /* nav */
 .nav{
-    background-color: #DD3A71;
+    background-color: #AD3F96;
 }
 .nav ul{
     list-style: none;
@@ -57,7 +57,7 @@ input[type='text'] label{
 
 /* footer */
 footer{
-    background-color: #DD3A71;
+    background-color: #AD3F96;
     text-align: center;
 
 }

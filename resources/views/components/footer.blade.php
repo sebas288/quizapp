@@ -1,3 +1,3 @@
 <footer>
-    <img class="m-5" src="images/logo.png" width="40%" salt="">
+    <img src="images/footer.png" width="25%" salt="">
 </footer>

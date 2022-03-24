@@ -17,15 +17,15 @@
                     class="col-md-8 _step {{ $field["show"] }}"
                     id="{{ $field["id"] }}"
                 >
-                    <h1>{{ $field["title"] }}</h1> 
+                    <h1>{{ $field["title"] }}</h1>
                     <strong id="score"></strong>
                     <hr />
-                    <div class="row">
+                    <div class="row text-center m-5">
                         @foreach ($field["fields"] as $input)
                         @switch($input["type"])
-                            @case("text")    
-                            @case("email")    
-                            @case("date")    
+                            @case("text")
+                            @case("email")
+                            @case("date")
                                 <div class="col-md-6">
                                     <div class="form-group form-check">
                                         <label
@@ -67,7 +67,7 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <div class="d-flex align-items-end justify-content-end">
+                            <div class="d-flex align-items-end justify-content-center m-5">
                                 <button
                                     type="submit" class="btn btn-primary back mr-2"
                                     id="{{ $field["id"] }}"
@@ -83,7 +83,7 @@
                                     class="btn btn-primary end-questions ml-2"
                                     id="end-questions"
                                 >Terminar</button>
-                                    
+
                                 @endif
                             </div>
                         </div>
