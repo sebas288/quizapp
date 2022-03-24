@@ -1,8 +1,8 @@
 <div class="{{ $display }} mt-5" id="parentTab">
     <div class="container">
-        <div class="row justify-content-center mt-4 align-items-baseline">
-            <h3>Tiempo: </h3>
+        <div class="row justify-content-center mt-4 align-items-baseline">            
             <div class="col-md-10 d-flex ">
+                <h3 id="counter">Tiempo  </h3>
                 <h3>
                     <span id="minDisplay"></span>
                     <span id="safeTimerDisplay"></span>
@@ -17,15 +17,16 @@
                     class="col-md-8 _step {{ $field["show"] }}"
                     id="{{ $field["id"] }}"
                 >
-                    <h1>{{ $field["title"] }}</h1>
+                    <h1>{{ $field["title"] }}</h1> 
                     <strong id="score"></strong>
                     <hr />
-                    <div class="row text-center m-5">
+                    <div class="row">
                         @foreach ($field["fields"] as $input)
                         @switch($input["type"])
-                            @case("text")
-                            @case("email")
-                            @case("date")
+                            @case("text")    
+                            @case("email")    
+                            @case("date")    
+                            @case("phone")    
                                 <div class="col-md-6">
                                     <div class="form-group form-check">
                                         <label
@@ -67,23 +68,25 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <div class="d-flex align-items-end justify-content-center m-5">
-                                <button
-                                    type="submit" class="btn btn-primary back mr-2"
-                                    id="{{ $field["id"] }}"
-                                >Atras</button>
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary next"
-                                    id="{{ $field["id"] }}"
-                                >Siguiente</button>
+                            <div class="d-flex align-items-end justify-content-end">
+                                @if ($field["changeSteps"])    
+                                    <button
+                                        type="submit" class="btn btn-primary back mr-2"
+                                        id="{{ $field["id"] }}"
+                                    >Atras</button>
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary next"
+                                        id="{{ $field["id"] }}"
+                                    >Siguiente</button>
+                                @endif
                                 @if ($field["btnEnd"])
                                 <button
                                     type="submit"
                                     class="btn btn-primary end-questions ml-2"
                                     id="end-questions"
                                 >Terminar</button>
-
+                                    
                                 @endif
                             </div>
                         </div>

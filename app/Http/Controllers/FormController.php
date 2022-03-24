@@ -13,27 +13,28 @@ class FormController extends Controller
                 "title" => "Datos personales",
                 "show" => "d-block",
                 "btnEnd" => false,
+                "changeSteps" => false,
                 "fields" => [
                     [
                         "field" => "task_2",
                         "type" => "text",
                         "class" => "step_1",
                         "data" => "false",
-                        "label" => "Nombre,",
+                        "label" => "Nombres,",
                     ],
                     [
                         "field" => "task_3",
-                        "type" => "text",
+                        "type" => "email",
                         "class" => "step_1",
                         "data" => "false",
-                        "label" => "Check me out",
+                        "label" => "Correo electronico",
                     ],
                     [
                         "field" => "task_4",
-                        "type" => "text",
+                        "type" => "phone",
                         "class" => "step_1",
                         "data" => "false",
-                        "label" => "informacion",
+                        "label" => "Celular",
                     ],
                 ],
             ],
@@ -44,6 +45,7 @@ class FormController extends Controller
                 "title" => "¿Me siento aceptada por mi grupo de pares y amigos(as)?",
                 "show" => "d-block",
                 "btnEnd" => false,
+                "changeSteps" => true,
                 "fields" => [
                     [
                         "field" => "ask_1",
@@ -66,6 +68,7 @@ class FormController extends Controller
                 "title" => "¿En los últimos tres meses has tenido relaciones sexuales con más de una persona? ",
                 "show" => "d-none",
                 "btnEnd" => false,
+                "changeSteps" => true,
                 "fields" => [
                     [
                         "field" => "name",
@@ -88,6 +91,7 @@ class FormController extends Controller
                 "title" => "¿Actualmente utilizas algún método anticonceptivo para prevenir embarazos?",
                 "show" => "d-none",
                 "btnEnd" => true,
+                "changeSteps" => true,
                 "fields" => [
                     [
                         "field" => "name",

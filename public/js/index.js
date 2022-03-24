@@ -52,6 +52,7 @@ document.addEventListener(
                 document.getElementById("score").innerHTML =
                     "Puntos: " + points;
                 alert("Puntaje: " + points);
+                document.getElementById("counter").classList.add("d-none");
             }
         }
         //create object for responses
