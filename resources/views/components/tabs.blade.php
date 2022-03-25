@@ -1,6 +1,6 @@
 <div class="{{ $display }} mt-5" id="parentTab">
     <div class="container">
-        <div class="row justify-content-center mt-4 align-items-baseline">            
+        <div class="row justify-content-center mt-4 align-items-baseline">
             <div class="col-md-10 d-flex ">
                 <h3 id="counter">Tiempo  </h3>
                 <h3>
@@ -11,22 +11,22 @@
         </div>
     </div>
     <form class="mb-4">
-        <div class="content row justify-content-center">
+        <div class="content row justify-content-center text-center">
             @foreach ($steps as $field)
                 <div
                     class="col-md-8 _step {{ $field["show"] }}"
                     id="{{ $field["id"] }}"
                 >
-                    <h1>{{ $field["title"] }}</h1> 
+                    <h1>{{ $field["title"] }}</h1>
                     <strong id="score"></strong>
                     <hr />
-                    <div class="row">
+                    <div class="row text-center mt-5 ">
                         @foreach ($field["fields"] as $input)
                         @switch($input["type"])
-                            @case("text")    
-                            @case("email")    
-                            @case("date")    
-                            @case("phone")    
+                            @case("text")
+                            @case("email")
+                            @case("date")
+                            @case("phone")
                                 <div class="col-md-6">
                                     <div class="form-group form-check">
                                         <label
@@ -68,8 +68,8 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <div class="d-flex align-items-end justify-content-end">
-                                @if ($field["changeSteps"])    
+                            <div class="d-flex align-items-center justify-content-center mt-5">
+                                @if ($field["changeSteps"])
                                     <button
                                         type="submit" class="btn btn-primary back mr-2"
                                         id="{{ $field["id"] }}"
@@ -86,7 +86,7 @@
                                     class="btn btn-primary end-questions ml-2"
                                     id="end-questions"
                                 >Terminar</button>
-                                    
+
                                 @endif
                             </div>
                         </div>
