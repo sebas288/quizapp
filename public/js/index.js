@@ -146,7 +146,7 @@ document.addEventListener(
                 Object.keys(step_5).length &
                 Object.keys(step_6).length &
                 Object.keys(step_7).length &
-                Object.keys(step_8).length /* &
+                Object.keys(step_8).length &
                 Object.keys(step_9).length &
                 Object.keys(step_10).length &
                 Object.keys(step_11).length &
@@ -164,7 +164,7 @@ document.addEventListener(
                 Object.keys(step_23).length &
                 Object.keys(step_24).length &
                 Object.keys(step_25).length &
-                Object.keys(step_26).length */
+                Object.keys(step_26).length
             ) {
                 tabs.classList.add("d-none");
                 finalForm.classList.remove("d-none");
@@ -178,7 +178,7 @@ document.addEventListener(
                     step_6,
                     step_7,
                     step_8,
-                    /* step_9,
+                    step_9,
                     step_10,
                     step_11,
                     step_12,
@@ -195,7 +195,7 @@ document.addEventListener(
                     step_23,
                     step_24,
                     step_25,
-                    step_26, */
+                    step_26,
                 ];
                 let points = 0;
                 finalData.forEach((element) => {
@@ -213,19 +213,16 @@ document.addEventListener(
                         document
                             .getElementById("resp_2")
                             .classList.remove("d-none");
-                            alert('Riesgo bajo de 0 a 7'+ points);
                         break;
                     case points <=14 :
                         document
                             .getElementById("resp_1")
                             .classList.remove("d-none");
-                            alert('Riesgo bajo de 8 a 15'+ points);
                         break;
                     case points <= 26:
                         document
                             .getElementById("resp_0")
                             .classList.remove("d-none");
-                            alert('Riesgo bajo de 15 a 26'+ points);
                         break;
 
                     default:

@@ -31,13 +31,15 @@
                         @foreach ($responses as $key => $value)
                         <div class="content row justify-content-center text-center my-3 d-none" id="resp_{{ $key }}">
                             <div class="col-md-12">
-                                <img src="{{ $responses[$key]["image"] }}" class="mb-2" width="30%" />
-                                {!! $responses[$key]["texto"] !!}
-                               {{--  <h3 class="mt-5 text-start">El titulo aquel</h3> --}}
-                                <div class="d-flex">
+                                <div class="mt-5">{!! $responses[$key]["titulo"] !!}</div>
+                                <img src="{{ $responses[$key]["image"] }}" class="mb-2 mt-5" width="50%" />
+                                <div class="text-justify mt-5">{!! $responses[$key]["texto"] !!}</div>
+                                {{--  <h3 class="mt-5 text-start">El titulo aquel</h3> --}}
+                                <div class="mt-5">{!! $responses[$key]["recordatorio"] !!}</div>
+                                <div class="d-flex mt-5">
                                     <ul class="list-r">
                                         @foreach ($responses[$key]["politicas"] as $item)
-                                            <li><strong>✅ {{$item}}</strong></li>
+                                            <li><strong>❌ {{$item}}</strong></li>
                                         @endforeach
                                     </ul>
                                 </div>

@@ -205,7 +205,7 @@ class FormController extends Controller
                 "id" => "step_8",
                 "title" => "¿Has  recibido información relacionada  con métodos  de planificación familiar a través de  amigos, padres  de familia, docentes  u otras personas? ",
                 "show" => "d-none",
-                "btnEnd" => true,
+                "btnEnd" => false,
                 "changeSteps" => true,
                 "fields" => [
                     [
@@ -224,7 +224,7 @@ class FormController extends Controller
                     ],
                 ],
             ],
-            /* "step_9" => [
+            "step_9" => [
                 "id" => "step_9",
                 "title" => "¿Tu  mamá  fue madre  antes  de los 19 años? ",
                 "show" => "d-none",
@@ -770,41 +770,82 @@ class FormController extends Controller
                         "label" => "Palanquero",
                     ],
                 ],
-            ], */
+            ],
         ];
 
         $responses = [
             [
+                "titulo" => "<h1>Camila y Camilo</h1>",
                 "image" => "/images/riesgo_alto.png",
-                "texto" => "<p>texto dumy en html para el render de las repsuestas</p><p>Apreciados participantes: la estrategia de prevención de embarazo adolescente de Medellín, busca la disminución de los embarazos no deseados en la ciudad, además de velar por la garantía de los derechos sexuales y reproductivos y lo más importante acercar la oferta institucional, te invitamos a participar de este test tipo juego y el grupo de “Yo decido cuando” te mostrará las opciones de riesgo en las cuales te ubicas según tus respuestas, este test es de carácter anónimo, pero si es necesario tu correo electrónico para hacer la devolución de la calificación de las preguntas y saber que personaje eres de yo decido cuando. Te pedimos responder con total sinceridad, pues solo tú conocerás el resultado.</p>",
+                "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un alto riesgo de un embarazo adolescente, pero ¡¡¡ANIMO!!!, Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de oferta para la Prevención  de  Embarazo  Adolescente  y  a  conectarte  con  la  línea  amiga  en  Salud 3007231123  </p>
+                <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en alto riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
+                <p>Si  eres  menor  de  14  años  recuerda  que  un  embarazo  a  tan  temprana  edad  es considerado por ley delito, por ello tienen unos derechos especiales que puedes consultar con un profesional en salud.</p>",
+                "recordatorio" => "<h1>Y RECUERDA NO CREAS EN MITOS</h1>",
                 "politicas" => [
-                    "RIESGO ALTO",
-                    "el hombre tambien se churretio",
-                    "el condon que si se rompio",
-                    "la niña que no planifico",
-                    "tales pascuales del tin de roberto",
+                    "La mujer nunca queda embarazada en la primera relación sexual. ",
+                    "A las mujeres que han tenido relaciones sexuales se les arquean las piernas. ",
+                    "El lavado vaginal después de la relación sexual es un método eficaz para evitar el embarazo.",
+                    "Durante la menstruación la mujer no debe practicar deportes, lavarse o cortarse el cabello, cargar bebés, cortar las plantas, entre otras actividades. ",
+                    "Si la mujer no sangra en su primera relación sexual, quiere decir que no es virgen.",
+                    "El VIH-SIDA se contagia sólo si se tiene relaciones sexuales con homosexuales o prostitutas. ",
+                    "Las vaginas de las mujeres huelen a pescado. ",
+                    "Si  un  hombre  se  masturba  demasiado,  tarde  o  temprano  se  le  acabarán  los espermatozoides",
+                    "El lugar más seguro para guardar el condón es la billetera.",
+                    "EL VIH puede pasar por los condones porque el condón se rompe con facilidad.",
+                    "Días antes y días después del periodo la mujer no queda embarazada .",
+                    "Retirar el pene de la vagina antes de eyacular es una forma efectiva de  prevenir el embarazo. ",
+                    "La masturbación es practicada casi exclusivamente por los hombres  .",
+                    "La vasectomía causa impotencia o disfunción eréctil en el hombre. ",
+                    "Los que calzan grande lo tienen grande .",
                 ]
             ],
             [
+                "titulo" => "<h1>Andrés y Andrea</h1>",
                 "image" => "/images/riesgo_medio.png",
-                "texto" => "<p>texto dumy en html para el render de las repsuestas del dos</p>",
+                "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un riesgo medio de un embarazo adolescente, pero ¡¡¡ANIMO!!!Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de Prevención de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123 </p>
+                <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
+                ",
+                "recordatorio" => "<h1>Y RECUERDA NO CREAS EN MITOS</h1>",
                 "politicas" => [
-                    "RIESGO MEDIO",
-                    "el condon que si se rompio",
-                    "la mujer no se que",
-                    "la niña que no planifico",
-                    "el hombre tambien se churretio",
+                    "La mujer nunca queda embarazada en la primera relación sexual. ",
+                    "A las mujeres que han tenido relaciones sexuales se les arquean las piernas. ",
+                    "El lavado vaginal después de la relación sexual es un método eficaz para evitar el embarazo.",
+                    "Durante la menstruación la mujer no debe practicar deportes, lavarse o cortarse el cabello, cargar bebés, cortar las plantas, entre otras actividades. ",
+                    "Si la mujer no sangra en su primera relación sexual, quiere decir que no es virgen.",
+                    "El VIH-SIDA se contagia sólo si se tiene relaciones sexuales con homosexuales o prostitutas. ",
+                    "Las vaginas de las mujeres huelen a pescado. ",
+                    "Si  un  hombre  se  masturba  demasiado,  tarde  o  temprano  se  le  acabarán  los espermatozoides",
+                    "El lugar más seguro para guardar el condón es la billetera.",
+                    "EL VIH puede pasar por los condones porque el condón se rompe con facilidad.",
+                    "Días antes y días después del periodo la mujer no queda embarazada .",
+                    "Retirar el pene de la vagina antes de eyacular es una forma efectiva de  prevenir el embarazo. ",
+                    "La masturbación es practicada casi exclusivamente por los hombres  .",
+                    "La vasectomía causa impotencia o disfunción eréctil en el hombre. ",
+                    "Los que calzan grande lo tienen grande .",
                 ]
             ],
             [
+                "titulo" => "<h1>Milena y maxi</h1>",
                 "image" => "/images/riesgo_bajo.png",
-                "texto" => "<p>texto dumy en html para el render de las repsuestas del dos</p>",
+                "texto" => "<p>Al estar en un riesgo bajo de un embarazo adolescente tienes una gran posibilidad de terminar una carrera universitaria, un postgrado, devengar un buen salario, sin embargo, no te confíes , siempre es necesario consultar un profesional de la salud y tener metas y sueños  claros,  te  invitamos  a  conocer  el  directorio  de  oferta  para  la  Prevención  de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123. </p>
+                ",
+                "recordatorio" => "<h1>Y RECUERDA NO CREAS EN MITOS</h1>",
                 "politicas" => [
-                    "RIESGO BAJO",
-                    "el condon que si se rompio",
-                    "la mujer no se que",
-                    "la niña que no planifico",
-                    "el hombre tambien se churretio",
+                    "La mujer nunca queda embarazada en la primera relación sexual. ",
+                    "A las mujeres que han tenido relaciones sexuales se les arquean las piernas. ",
+                    "El lavado vaginal después de la relación sexual es un método eficaz para evitar el embarazo.",
+                    "Durante la menstruación la mujer no debe practicar deportes, lavarse o cortarse el cabello, cargar bebés, cortar las plantas, entre otras actividades. ",
+                    "Si la mujer no sangra en su primera relación sexual, quiere decir que no es virgen.",
+                    "El VIH-SIDA se contagia sólo si se tiene relaciones sexuales con homosexuales o prostitutas. ",
+                    "Las vaginas de las mujeres huelen a pescado. ",
+                    "Si  un  hombre  se  masturba  demasiado,  tarde  o  temprano  se  le  acabarán  los espermatozoides",
+                    "El lugar más seguro para guardar el condón es la billetera.",
+                    "EL VIH puede pasar por los condones porque el condón se rompe con facilidad.",
+                    "Días antes y días después del periodo la mujer no queda embarazada .",
+                    "Retirar el pene de la vagina antes de eyacular es una forma efectiva de  prevenir el embarazo. ",
+                    "La masturbación es practicada casi exclusivamente por los hombres  .",
+                    "La vasectomía causa impotencia o disfunción eréctil en el hombre. ",
+                    "Los que calzan grande lo tienen grande .",
                 ]
             ],
         ];

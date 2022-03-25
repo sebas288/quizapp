@@ -7,7 +7,7 @@
     <title>Caracterización Yo decido</title>
 </head>
 <body>
-    <h1>Yo decido faltan datos</h1>
+    <h1>YO DECIDO  !! falta plantilla</h1>
     {{ var_dump($email) }}
     {{ var_dump($finalData) }}
     {{ var_dump($finalTime) }}
