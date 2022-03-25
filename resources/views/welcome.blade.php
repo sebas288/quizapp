@@ -17,7 +17,6 @@
                 </div>
             @endif
 
-
             <div class="container-fluid">
                 @include('components.navbar')
                 @include('components.start')
@@ -29,17 +28,19 @@
                 <div class="d-none" id="finalForm">
 
                     <div class="container mb-4">
-                        <h3 class="text-center">respuestas</h3>
                         @foreach ($responses as $key => $value)
-                        <div class="content row justify-content-center text-center d-none" id="resp_{{ $key }}">
-                            <div class="col-md-8">
-                                <img src="{{ $responses[$key]["image"] }}" width="100%" />
+                        <div class="content row justify-content-center text-center my-3 d-none" id="resp_{{ $key }}">
+                            <div class="col-md-12">
+                                <img src="{{ $responses[$key]["image"] }}" class="mb-2" width="30%" />
                                 {!! $responses[$key]["texto"] !!}
-                                <ul>
-                                    @foreach ($responses[$key]["politicas"] as $item)
-                                        <li> {{$item}} </li>
-                                    @endforeach
-                                </ul>
+                               {{--  <h3 class="mt-5 text-start">El titulo aquel</h3> --}}
+                                <div class="d-flex">
+                                    <ul class="list-r">
+                                        @foreach ($responses[$key]["politicas"] as $item)
+                                            <li><strong>✅ {{$item}}</strong></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         @endforeach
