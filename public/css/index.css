@@ -7,6 +7,8 @@ html, body {
     margin: 0;
 }
 
+
+
 /* nav */
 .nav{
     background-color: #AD3F96;
@@ -57,6 +59,15 @@ input[type='text'] label{
 }
 #parentTab{
     min-height: 450px;
+}
+
+.list-r{
+    list-style: none;
+    padding: 0;
+    text-align: initial;
+}
+.list-r li strong{
+    font-size: 22px;
 }
 
 /* footer */

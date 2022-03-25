@@ -42,6 +42,10 @@ document.addEventListener(
         //end questions
         if (event.target.matches(".endBackend")) {
             event.preventDefault();
+            //loading btn
+            document.getElementById("endBackend").style.display = "none";
+            document.getElementById("loading").innerHTML = "Cargando...";
+
             //get email
             const email = document.getElementById("email").value;
             const dataBack = {
@@ -338,6 +342,9 @@ function httpPost(request) {
         if (this.status == 200) {
             const data = JSON.parse(this.responseText);
             console.log(data);
+            document.getElementById("endBackend").style.display = "block";
+            document.getElementById("loading").innerHTML =
+                "Respuesta enviada...";
             window.localStorage.clear();
             return data;
             // we get the returned data
