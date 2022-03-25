@@ -341,17 +341,24 @@ class FormController extends Controller
             ],
             "step_14" => [
                 "id" => "step_14",
-                "title" => "Fecha de nacimiento",
+                "title" => "Edad",
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
                 "fields" => [
                     [
                         "field" => "a1s14",
-                        "type" => "date",
+                        "type" => "checkbox",
                         "class" => "step_14",
                         "data" => 1,
-                        "label" => "selecciona tu fecha de nacimiento: ",
+                        "label" => "Entre 11 y 14 años ",
+                    ],
+                    [
+                        "field" => "a2s14",
+                        "type" => "checkbox",
+                        "class" => "step_14",
+                        "data" => 1,
+                        "label" => "Entre 15 y 19 años ",
                     ],
                 ],
             ],
