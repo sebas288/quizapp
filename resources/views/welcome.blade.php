@@ -58,6 +58,7 @@
                                 <div class="col-md-8">
                                     <button id="endBackend" class="endBackend btn btn-sm btn-block btn-primary mt-2">Enviar respuestas al correo.
                                     </button>
+                                    <p id="loading"></p>
                                 </div>
                             </div>
                         </form>
