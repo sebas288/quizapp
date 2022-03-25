@@ -29,11 +29,11 @@
                 <div class="d-none" id="finalForm">
 
                     <div class="container mb-4">
-                        <h3 class="text-center">respuestas</h3>
+                        <h3 class="text-center">RESULTADOS: </h3>
                         @foreach ($responses as $key => $value)
                         <div class="content row justify-content-center text-center d-none" id="resp_{{ $key }}">
                             <div class="col-md-8">
-                                <img src="{{ $responses[$key]["image"] }}" width="100%" />
+                                <img src="{{ $responses[$key]["image"] }}" width="50%" />
                                 {!! $responses[$key]["texto"] !!}
                                 <ul>
                                     @foreach ($responses[$key]["politicas"] as $item)

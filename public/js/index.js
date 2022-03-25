@@ -61,42 +61,88 @@ document.addEventListener(
             const step_2 = window.localStorage.getItem("step_2")
                 ? JSON.parse(window.localStorage.getItem("step_2"))
                 : {};
-            const step_3 = window.localStorage.getItem("step_2")
-                ? JSON.parse(window.localStorage.getItem("step_2"))
+            const step_3 = window.localStorage.getItem("step_3")
+                ? JSON.parse(window.localStorage.getItem("step_3"))
                 : {};
-            const step_4 = JSON.parse(window.localStorage.getItem("step_4"));
-            const step_5 = JSON.parse(window.localStorage.getItem("step_5"));
-            const step_6 = JSON.parse(window.localStorage.getItem("step_6"));
-            const step_7 = JSON.parse(window.localStorage.getItem("step_7"));
-            const step_8 = JSON.parse(window.localStorage.getItem("step_8"));
-            const step_9 = JSON.parse(window.localStorage.getItem("step_9"));
-            const step_10 = JSON.parse(window.localStorage.getItem("step_10"));
-            const step_11 = JSON.parse(window.localStorage.getItem("step_11"));
-            const step_12 = JSON.parse(window.localStorage.getItem("step_12"));
-            const step_13 = JSON.parse(window.localStorage.getItem("step_13"));
-            const step_14 = JSON.parse(window.localStorage.getItem("step_14"));
-            const step_15 = JSON.parse(window.localStorage.getItem("step_15"));
-            const step_16 = JSON.parse(window.localStorage.getItem("step_16"));
-            const step_17 = JSON.parse(window.localStorage.getItem("step_17"));
-            const step_18 = JSON.parse(window.localStorage.getItem("step_18"));
-            const step_19 = JSON.parse(window.localStorage.getItem("step_19"));
-            const step_20 = JSON.parse(window.localStorage.getItem("step_20"));
-            const step_21 = JSON.parse(window.localStorage.getItem("step_21"));
-            const step_22 = JSON.parse(window.localStorage.getItem("step_22"));
-            const step_23 = JSON.parse(window.localStorage.getItem("step_23"));
-            const step_24 = JSON.parse(window.localStorage.getItem("step_24"));
-            const step_25 = JSON.parse(window.localStorage.getItem("step_25"));
-            const step_26 = JSON.parse(window.localStorage.getItem("step_26"));
+            const step_4 = window.localStorage.getItem("step_4")
+                ? JSON.parse(window.localStorage.getItem("step_4"))
+                : {};
+            const step_5 = window.localStorage.getItem("step_5")
+                ? JSON.parse(window.localStorage.getItem("step_5"))
+                : {};
+            const step_6 = window.localStorage.getItem("step_6")
+                ? JSON.parse(window.localStorage.getItem("step_6"))
+                : {};
+            const step_7 = window.localStorage.getItem("step_7")
+                ? JSON.parse(window.localStorage.getItem("step_7"))
+                : {};
+            const step_8 = window.localStorage.getItem("step_8")
+                ? JSON.parse(window.localStorage.getItem("step_8"))
+                : {};
+            const step_9 = window.localStorage.getItem("step_9")
+                ? JSON.parse(window.localStorage.getItem("step_9"))
+                : {};
+            const step_10 = window.localStorage.getItem("step_10")
+                ? JSON.parse(window.localStorage.getItem("step_10"))
+                : {};
+            const step_11 = window.localStorage.getItem("step_11")
+                ? JSON.parse(window.localStorage.getItem("step_11"))
+                : {};
+            const step_12 = window.localStorage.getItem("step_12")
+                ? JSON.parse(window.localStorage.getItem("step_12"))
+                : {};
+            const step_13 = window.localStorage.getItem("step_13")
+                ? JSON.parse(window.localStorage.getItem("step_13"))
+                : {};
+            const step_14 = window.localStorage.getItem("step_14")
+                ? JSON.parse(window.localStorage.getItem("step_14"))
+                : {};
+            const step_15 = window.localStorage.getItem("step_15")
+                ? JSON.parse(window.localStorage.getItem("step_15"))
+                : {};
+            const step_16 = window.localStorage.getItem("step_16")
+                ? JSON.parse(window.localStorage.getItem("step_16"))
+                : {};
+            const step_17 = window.localStorage.getItem("step_17")
+                ? JSON.parse(window.localStorage.getItem("step_17"))
+                : {};
+            const step_18 = window.localStorage.getItem("step_18")
+                ? JSON.parse(window.localStorage.getItem("step_18"))
+                : {};
+            const step_19 = window.localStorage.getItem("step_19")
+                ? JSON.parse(window.localStorage.getItem("step_19"))
+                : {};
+            const step_20 = window.localStorage.getItem("step_20")
+                ? JSON.parse(window.localStorage.getItem("step_20"))
+                : {};
+            const step_21 = window.localStorage.getItem("step_21")
+                ? JSON.parse(window.localStorage.getItem("step_21"))
+                : {};
+            const step_22 = window.localStorage.getItem("step_22")
+                ? JSON.parse(window.localStorage.getItem("step_22"))
+                : {};
+            const step_23 = window.localStorage.getItem("step_23")
+                ? JSON.parse(window.localStorage.getItem("step_23"))
+                : {};
+            const step_24 = window.localStorage.getItem("step_24")
+                ? JSON.parse(window.localStorage.getItem("step_24"))
+                : {};
+            const step_25 = window.localStorage.getItem("step_25")
+                ? JSON.parse(window.localStorage.getItem("step_25"))
+                : {};
+            const step_26 = window.localStorage.getItem("step_26")
+                ? JSON.parse(window.localStorage.getItem("step_26"))
+                : {};
 
             if (
                 Object.keys(step_1).length &
                 Object.keys(step_2).length &
-                Object.keys(step_3).length /* &
+                Object.keys(step_3).length &
                 Object.keys(step_4).length &
                 Object.keys(step_5).length &
                 Object.keys(step_6).length &
                 Object.keys(step_7).length &
-                Object.keys(step_8).length &
+                Object.keys(step_8).length /* &
                 Object.keys(step_9).length &
                 Object.keys(step_10).length &
                 Object.keys(step_11).length &
@@ -123,12 +169,12 @@ document.addEventListener(
                     step_1,
                     step_2,
                     step_3,
-                    /* step_4,
+                    step_4,
                     step_5,
                     step_6,
                     step_7,
                     step_8,
-                    step_9,
+                    /* step_9,
                     step_10,
                     step_11,
                     step_12,
@@ -159,15 +205,23 @@ document.addEventListener(
                 window.localStorage.setItem("requestTest", dsataBackend);
 
                 switch (true) {
-                    case points == 1:
+                    case points <=7 :
+                        document
+                            .getElementById("resp_2")
+                            .classList.remove("d-none");
+                            alert('Riesgo bajo de 0 a 7'+ points);
+                        break;
+                    case points <=14 :
                         document
                             .getElementById("resp_1")
                             .classList.remove("d-none");
+                            alert('Riesgo bajo de 8 a 15'+ points);
                         break;
-                    case points > 1 || points < 3:
+                    case points <= 26:
                         document
                             .getElementById("resp_0")
                             .classList.remove("d-none");
+                            alert('Riesgo bajo de 15 a 26'+ points);
                         break;
 
                     default:
