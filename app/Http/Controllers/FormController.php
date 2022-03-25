@@ -90,7 +90,7 @@ class FormController extends Controller
                 "id" => "step_3",
                 "title" => "¿Al  momento de  tener relaciones sexuales, utilizas preservativo? ",
                 "show" => "d-none",
-                "btnEnd" => false,
+                "btnEnd" => true,
                 "changeSteps" => true,
                 "fields" => [
                     [
@@ -109,7 +109,7 @@ class FormController extends Controller
                     ],
                 ],
             ],
-            "step_4" => [
+            /* "step_4" => [
                 "id" => "step_4",
                 "title" => "¿Actualmente utilizas algún método anticonceptivo para prevenir embarazos?",
                 "show" => "d-none",
@@ -770,11 +770,38 @@ class FormController extends Controller
                         "label" => "Palanquero",
                     ],
                 ],
+            ], */
+        ];
+
+        $responses = [
+            [
+                "image" => "https://ayalabr.com/wp-content/uploads/2021/06/pic.png",
+                "texto" => "<p>texto dumy en html para el render de las repsuestas</p><p>Apreciados participantes: la estrategia de prevención de embarazo adolescente de Medellín, busca la disminución de los embarazos no deseados en la ciudad, además de velar por la garantía de los derechos sexuales y reproductivos y lo más importante acercar la oferta institucional, te invitamos a participar de este test tipo juego y el grupo de “Yo decido cuando” te mostrará las opciones de riesgo en las cuales te ubicas según tus respuestas, este test es de carácter anónimo, pero si es necesario tu correo electrónico para hacer la devolución de la calificación de las preguntas y saber que personaje eres de yo decido cuando. Te pedimos responder con total sinceridad, pues solo tú conocerás el resultado.</p>",
+                "politicas" => [
+                    "la mujer no se que",
+                    "el hombre tambien se churretio",
+                    "el condon que si se rompio",
+                    "la niña que no planifico",
+                    "tales pascuales del tin de roberto",
+                ]
+            ],
+            [
+                "image" => "https://cdn-icons-png.flaticon.com/512/145/145843.png",
+                "texto" => "<p>texto dumy en html para el render de las repsuestas del dos</p>",
+                "politicas" => [
+                    "tales pascuales del tin de roberto",
+                    "el condon que si se rompio",
+                    "la mujer no se que",
+                    "la niña que no planifico",
+                    "el hombre tambien se churretio",
+                ]
             ],
         ];
+
         return view('welcome', [
             'steps' => $steps,
             'finalForm' => $finalForm,
+            'responses' => $responses,
         ]);
     }
 }

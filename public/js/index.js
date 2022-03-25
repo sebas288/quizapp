@@ -1,3 +1,8 @@
+let finalTime = {
+    min: 0,
+    sec: 0,
+};
+
 function timer() {
     let sec = 3600;
     let time = 0;
@@ -7,8 +12,14 @@ function timer() {
         let seconds = time - customParse;
         if (min >= 1)
             document.getElementById("minDisplay").innerHTML =
-                parseInt(min) + "";
+                "Tiempo: " + parseInt(min) + "";
         document.getElementById("safeTimerDisplay").innerHTML =
+            parseInt(time / 60) < 1
+                ? "Tiempo: " + time + ""
+                : ":" + seconds + "";
+
+        finalTime["min"] = parseInt(min);
+        finalTime["sec"] =
             parseInt(time / 60) < 1 ? ":" + time + "" : ":" + seconds + "";
 
         sec--;
@@ -27,15 +38,32 @@ const finalForm = document.getElementById("finalForm");
 document.addEventListener(
     "click",
     function (event) {
+        //request back
+        //end questions
+        if (event.target.matches(".endBackend")) {
+            event.preventDefault();
+            //get email
+            const email = document.getElementById("email").value;
+            const dataBack = {
+                ...JSON.parse(window.localStorage.getItem("requestTest")),
+                email: email,
+            };
+            httpPost(JSON.stringify(dataBack));
+        }
+
         //end questions
         if (event.target.matches(".end-questions")) {
             event.preventDefault();
-            tabs.classList.add("d-none");
-            finalForm.classList.remove("d-none");
 
-            const step_1 = JSON.parse(window.localStorage.getItem("step_1"));
-            const step_2 = JSON.parse(window.localStorage.getItem("step_2"));
-            const step_3 = JSON.parse(window.localStorage.getItem("step_3"));
+            const step_1 = window.localStorage.getItem("step_1")
+                ? JSON.parse(window.localStorage.getItem("step_1"))
+                : {};
+            const step_2 = window.localStorage.getItem("step_2")
+                ? JSON.parse(window.localStorage.getItem("step_2"))
+                : {};
+            const step_3 = window.localStorage.getItem("step_2")
+                ? JSON.parse(window.localStorage.getItem("step_2"))
+                : {};
             const step_4 = JSON.parse(window.localStorage.getItem("step_4"));
             const step_5 = JSON.parse(window.localStorage.getItem("step_5"));
             const step_6 = JSON.parse(window.localStorage.getItem("step_6"));
@@ -63,7 +91,7 @@ document.addEventListener(
             if (
                 Object.keys(step_1).length &
                 Object.keys(step_2).length &
-                Object.keys(step_3).length &
+                Object.keys(step_3).length /* &
                 Object.keys(step_4).length &
                 Object.keys(step_5).length &
                 Object.keys(step_6).length &
@@ -86,19 +114,91 @@ document.addEventListener(
                 Object.keys(step_23).length &
                 Object.keys(step_24).length &
                 Object.keys(step_25).length &
-                Object.keys(step_26).length
+                Object.keys(step_26).length */
             ) {
-                const finalData = [step_1, step_2, step_3, step_4, step_5, step_6, step_7, step_8, step_9, step_10, step_11, step_12, step_13, step_14, step_15, step_16, step_17, step_18, step_19, step_20, step_21, step_22, step_23, step_24, step_25, step_26 ];
+                tabs.classList.add("d-none");
+                finalForm.classList.remove("d-none");
+
+                const finalData = [
+                    step_1,
+                    step_2,
+                    step_3,
+                    /* step_4,
+                    step_5,
+                    step_6,
+                    step_7,
+                    step_8,
+                    step_9,
+                    step_10,
+                    step_11,
+                    step_12,
+                    step_13,
+                    step_14,
+                    step_15,
+                    step_16,
+                    step_17,
+                    step_18,
+                    step_19,
+                    step_20,
+                    step_21,
+                    step_22,
+                    step_23,
+                    step_24,
+                    step_25,
+                    step_26, */
+                ];
                 let points = 0;
                 finalData.forEach((element) => {
-                    console.log(element);
                     points = points + parseInt(element.point);
                 });
-                console.log(points);
-                document.getElementById("score").innerHTML =
-                    "Puntos: " + points;
-                alert("Puntaje: " + points);
-                document.getElementById("counter").classList.add("d-none");
+                const dsataBackend = JSON.stringify({
+                    points: points,
+                    finalTime: finalTime,
+                    finalData: finalData,
+                });
+                window.localStorage.setItem("requestTest", dsataBackend);
+
+                switch (true) {
+                    case points == 1:
+                        document
+                            .getElementById("resp_1")
+                            .classList.remove("d-none");
+                        break;
+                    case points > 1 || points < 3:
+                        document
+                            .getElementById("resp_0")
+                            .classList.remove("d-none");
+                        break;
+
+                    default:
+                        console.log("points: ", points);
+                        break;
+                }
+
+                /* const xhr = new XMLHttpRequest();
+                xhr.open("POST", "/api/test", true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                xhr.onreadystatechange = function () {
+                    if (this.readyState != 4) return;
+
+                    if (this.status == 200) {
+                        const data = JSON.parse(this.responseText);
+                        console.log("data. ", data);
+                        // we get the returned data
+                    }
+                    // end of state change: it can be after some time (async)
+                };
+                xhr.send(dsataBackend); */
+
+                if (document.getElementById("score")) {
+                    document.getElementById("score").innerHTML =
+                        "Puntos: " + points;
+                }
+
+                //document.getElementById("counter").classList.add("d-none");
+            } else {
+                alert("Debes contestar todas las preguntas");
             }
         }
         //create object for responses
@@ -106,6 +206,7 @@ document.addEventListener(
             window.localStorage.setItem(
                 event.target.dataset.step,
                 JSON.stringify({
+                    title: event.target.dataset.title,
                     name: event.target.name,
                     value: event.target.value,
                     label: event.target.dataset.label,
@@ -171,6 +272,27 @@ const selectedSteps = [
     document.getElementsByClassName("step_26"),
     document.getElementsByClassName("autorization"),
 ];
+//send data backend
+function httpPost(request) {
+    //endBackend
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/test", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (this.readyState != 4) return;
+
+        if (this.status == 200) {
+            const data = JSON.parse(this.responseText);
+            console.log(data);
+            window.localStorage.clear();
+            return data;
+            // we get the returned data
+        }
+        // end of state change: it can be after some time (async)
+    };
+    xhr.send(request);
+}
+
 //recorremos todos los check con la misma clase, les quitamos el checked y luego solo lo agremos al que estamos clickeando
 for (let r = 0; r < selectedSteps.length; r++) {
     const element = selectedSteps[r];

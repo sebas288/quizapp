@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center mt-4 align-items-baseline">
             <div class="col-md-10 d-flex ">
-                <h3 id="counter">Tiempo  </h3>
+                <h3 id="counter"></h3>
                 <h3>
                     <span id="minDisplay"></span>
                     <span id="safeTimerDisplay"></span>
@@ -18,7 +18,6 @@
                     id="{{ $field["id"] }}"
                 >
                     <h1>{{ $field["title"] }}</h1>
-                    <strong id="score"></strong>
                     <hr />
                     <div class="row text-center mt-5 ">
                         @foreach ($field["fields"] as $input)
@@ -39,6 +38,7 @@
                                             id="{{ $input["field"] }}"
                                             name="{{ $input["field"] }}"
                                             data-step="{{ $field["id"] }}"
+                                            data-title="{{ $field["title"] }}"
                                             data-value="{{ $input["data"] }}"
                                             data-label="{{ $input["label"] }}"
                                         >
@@ -54,6 +54,7 @@
                                         id="{{ $input["field"] }}"
                                         name="{{ $input["field"] }}"
                                         data-step="{{ $field["id"] }}"
+                                        data-title="{{ $field["title"] }}"
                                         data-value="{{ $input["data"] }}"
                                         data-label="{{ $input["label"] }}"
                                     >

@@ -27,11 +27,47 @@
                     'steps' => $steps
                 ])
                 <div class="d-none" id="finalForm">
-                    @include('components.tabs', [
+
+                    <div class="container mb-4">
+                        <h3 class="text-center">respuestas</h3>
+                        @foreach ($responses as $key => $value)
+                        <div class="content row justify-content-center text-center d-none" id="resp_{{ $key }}">
+                            <div class="col-md-8">
+                                <img src="{{ $responses[$key]["image"] }}" width="100%" />
+                                {!! $responses[$key]["texto"] !!}
+                                <ul>
+                                    @foreach ($responses[$key]["politicas"] as $item)
+                                        <li> {{$item}} </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
+
+                        <form action="">
+                            <div class="content row justify-content-center text-center">
+                                <div class="col-md-8">
+                                    <label for="email">Correo Electronico</label>
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        name="email" />
+                                </div>
+                                <div class="col-md-8">
+                                    <button id="endBackend" class="endBackend btn btn-sm btn-block btn-primary mt-2">Enviar respuestas al correo.
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                   {{--  @include('components.tabs', [
                         'id' => "finalForm",
                         'display' => "d-block",
                         'steps' => $finalForm
-                    ])
+                    ]) --}}
                 </div>
 
             </div>
