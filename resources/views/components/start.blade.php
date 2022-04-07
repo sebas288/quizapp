@@ -25,7 +25,7 @@
         educativas.
         </p>
         <p>Si después de responder las preguntas se generan dudas, las puedes resolver con tu profesional de
-        acompañamiento o comunicarte a la línea amiga saludable de la Alcaldía de Medellín 444 44 48</p>
+        acompañamiento o comunicarte a la línea amiga saludable de la Alcaldía de Medellín 4444448 - 3007231123</p>
         <p>Si deseas mayor información, puedes dejarnos tú número de teléfono o celular. </p>
         <p>Para continuar:</p>
         <p class="text-center autorizacion">¿Autoriza al Municipio de Medellín para realizar tratamiento de sus datos personales?</p>

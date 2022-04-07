@@ -825,7 +825,7 @@ class FormController extends Controller
                 ]
             ],
             [
-                "titulo" => "<h1>Milena y maxi</h1>",
+                "titulo" => "<h1>Erika y Diego</h1>",
                 "image" => "/images/riesgo_bajo.png",
                 "texto" => "<p>Al estar en un riesgo bajo de un embarazo adolescente tienes una gran posibilidad de terminar una carrera universitaria, un postgrado, devengar un buen salario, sin embargo, no te confíes , siempre es necesario consultar un profesional de la salud y tener metas y sueños  claros,  te  invitamos  a  conocer  el  directorio  de  oferta  para  la  Prevención  de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123. </p>
                 ",
