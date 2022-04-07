@@ -15,13 +15,20 @@ class SaveController extends Controller
             "finalData" => $request->finalData,
             "finalTime" => $request->finalTime,
             "points" => $request->points,
+            "template" => $request->template,
         ]);
+
+        $templates = [
+            "emails.cero",
+            "emails.test",
+            "emails.riesgo_alto",
+        ];
 
         $error = null;
         $email = null;
         try {
             $test->save();
-            $email = $this->sendEmails($request->email, "edwin123067@gmail.com", "emails.test", [
+            $email = $this->sendEmails($request->email, "edwin123067@gmail.com", $templates[$request->template], [
                 "email" => $request->email,
                 "finalData" => $request->finalData,
                 "finalTime" => $request->finalTime,

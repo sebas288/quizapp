@@ -198,37 +198,45 @@ document.addEventListener(
                     step_26,
                 ];
                 let points = 0;
+                let template = 0;
                 finalData.forEach((element) => {
                     points = points + parseInt(element.point);
                 });
-                const dsataBackend = JSON.stringify({
-                    points: points,
-                    finalTime: finalTime,
-                    finalData: finalData,
-                });
-                window.localStorage.setItem("requestTest", dsataBackend);
 
                 switch (true) {
-                    case points <=7 :
+                    case points <= 7:
                         document
                             .getElementById("resp_2")
                             .classList.remove("d-none");
+                        template = 1;
                         break;
-                    case points <=14 :
+                    case points <= 14:
                         document
                             .getElementById("resp_1")
                             .classList.remove("d-none");
+                        template = 1;
                         break;
                     case points <= 26:
                         document
                             .getElementById("resp_0")
                             .classList.remove("d-none");
+                        template = 1;
                         break;
 
                     default:
                         console.log("points: ", points);
+                        template = 1;
                         break;
                 }
+
+                const dsataBackend = JSON.stringify({
+                    points: points,
+                    finalTime: finalTime,
+                    finalData: finalData,
+                    template: template,
+                });
+
+                window.localStorage.setItem("requestTest", dsataBackend);
 
                 /* const xhr = new XMLHttpRequest();
                 xhr.open("POST", "/api/test", true);
