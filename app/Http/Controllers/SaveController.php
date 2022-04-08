@@ -19,8 +19,8 @@ class SaveController extends Controller
         ]);
 
         $templates = [
-            "emails.cero",
-            "emails.test",
+            "emails.riesgo_bajo",
+            "emails.riesgo_medio",
             "emails.riesgo_alto",
         ];
 

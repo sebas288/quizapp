@@ -204,23 +204,23 @@ document.addEventListener(
                 });
 
                 switch (true) {
-                    case points <= 7:
+                    case points <= 7: //riesgo bajo
                         document
                             .getElementById("resp_2")
                             .classList.remove("d-none");
-                        template = 1;
+                        template = 0;
                         break;
-                    case points <= 14:
+                    case points <= 14: //riesgo medio
                         document
                             .getElementById("resp_1")
                             .classList.remove("d-none");
                         template = 1;
                         break;
-                    case points <= 26:
+                    case points <= 26: //riesgo alto
                         document
                             .getElementById("resp_0")
                             .classList.remove("d-none");
-                        template = 1;
+                        template = 2;
                         break;
 
                     default:
