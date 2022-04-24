@@ -73,7 +73,7 @@ class SaveController extends Controller
         }
     }
 
-    public function show () {
+    public function show() {
         $question = Test::select(
             'id',
             'questions'
