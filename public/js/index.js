@@ -250,6 +250,7 @@ document.addEventListener(
                     finalTime: finalTime,
                     finalData: finalData,
                     template: template,
+                    genero: genero,
                 });
 
                 window.localStorage.setItem("requestTest", dsataBackend);

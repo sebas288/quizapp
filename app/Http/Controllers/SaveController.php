@@ -16,6 +16,7 @@ class SaveController extends Controller
             "finalTime" => $request->finalTime,
             "points" => $request->points,
             "template" => $request->template,
+            "genero" => $request->genero,
         ]);
 
         $templates = [
@@ -33,6 +34,7 @@ class SaveController extends Controller
                 "finalData" => $request->finalData,
                 "finalTime" => $request->finalTime,
                 "points" => $request->points,
+                "genero" => $request->genero,
             ], "Caracterización yo decido");
         } catch (\Exception $e) {
             $error = $e->getMessage();
