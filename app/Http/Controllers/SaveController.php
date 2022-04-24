@@ -72,4 +72,15 @@ class SaveController extends Controller
             ];
         }
     }
+
+    public function show () {
+        $question = Test::select(
+            'id',
+            'questions'
+        )->get();
+
+        return response()->json([
+            'question' => $question
+        ], 200);
+    }
 }

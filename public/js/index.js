@@ -285,6 +285,14 @@ document.addEventListener(
                 timer();
             }
         }
+        //modal del no
+        if (event.target.matches(".autorization")) {
+            if (event.target.name == "no") {
+                $('#myModal2').modal('show');
+                timer();
+            }
+        }
+
         // handle tabs for step
         if (event.target.matches(".next") || event.target.matches(".back")) {
             event.preventDefault();

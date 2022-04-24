@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/test', "SaveController@store");
+Route::get('/test', "SaveController@show");
