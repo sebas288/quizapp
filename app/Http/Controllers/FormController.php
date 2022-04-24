@@ -40,10 +40,33 @@ class FormController extends Controller
             ],
         ];
         $steps = [
+            "step_0" => [
+                "id" => "step_0",
+                "title" => "¿Cual es tu tipo de genero?",
+                "show" => "d-block",
+                "btnEnd" => false,
+                "changeSteps" => true,
+                "fields" => [
+                    [
+                        "field" => "a1s1",
+                        "type" => "checkbox",
+                        "class" => "step_0",
+                        "data" => 0,
+                        "label" => "Hombre",
+                    ],
+                    [
+                        "field" => "a2s1",
+                        "type" => "checkbox",
+                        "class" => "step_0",
+                        "data" => 0,
+                        "label" => "Mujer",
+                    ],
+                ],
+            ],
             "step_1" => [
                 "id" => "step_1",
                 "title" => "¿Me siento aceptada por mi grupo de pares y amigos(as)?",
-                "show" => "d-block",
+                "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
                 "fields" => [

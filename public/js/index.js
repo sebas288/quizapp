@@ -2,7 +2,8 @@ let finalTime = {
     min: 0,
     sec: 0,
 };
-
+//limpiar la cache o localstorage mk al inicial la app
+window.localStorage.clear();
 function timer() {
     let sec = 3600;
     let time = 0;
@@ -59,6 +60,9 @@ document.addEventListener(
         if (event.target.matches(".end-questions")) {
             event.preventDefault();
 
+            const step_0 = window.localStorage.getItem("step_0")
+                ? JSON.parse(window.localStorage.getItem("step_0"))
+                : {};
             const step_1 = window.localStorage.getItem("step_1")
                 ? JSON.parse(window.localStorage.getItem("step_1"))
                 : {};
@@ -139,6 +143,7 @@ document.addEventListener(
                 : {};
 
             if (
+                Object.keys(step_0).length &
                 Object.keys(step_1).length &
                 Object.keys(step_2).length &
                 Object.keys(step_3).length &
@@ -170,6 +175,8 @@ document.addEventListener(
                 finalForm.classList.remove("d-none");
 
                 const finalData = [
+                    step_0,
+                    step_1,
                     step_1,
                     step_2,
                     step_3,
@@ -203,12 +210,21 @@ document.addEventListener(
                     points = points + parseInt(element.point);
                 });
 
+                //la variable {genero} viene con Hombre o Mujer
+                let genero = null;
+                let task = window.localStorage.getItem("step_0") ?? null;
+                if (task) genero = task.label;
+
                 switch (true) {
                     case points <= 7: //riesgo bajo
                         document
                             .getElementById("resp_2")
                             .classList.remove("d-none");
-                        template = 0;
+                        if (genero == "Hombre") {
+                            template = 0;
+                        } else {
+                            template = 0;
+                        }
                         break;
                     case points <= 14: //riesgo medio
                         document
@@ -288,8 +304,8 @@ document.addEventListener(
         //modal del no
         if (event.target.matches(".autorization")) {
             if (event.target.name == "no") {
-                $('#myModal2').modal('show');
-                timer();
+                $("#myModal2").modal("show");
+                //timer();
             }
         }
 
@@ -297,10 +313,17 @@ document.addEventListener(
         if (event.target.matches(".next") || event.target.matches(".back")) {
             event.preventDefault();
             const step = event.target.id.replace("step_", "");
+            console.log("donde estoy", step);
             const currenTab = document.getElementById("step_" + step);
             const counter = event.target.matches(".next")
                 ? parseInt(step) + 1
                 : parseInt(step) - 1;
+            //validaciones en las preguntas
+            if (window.localStorage.getItem("step_" + step) === null) {
+                alert("debes responder la pregunta mk");
+                return;
+            }
+            console.log("currenTab: ", currenTab);
             let nextTab = null;
             if (document.getElementById("step_" + counter))
                 nextTab = document.getElementById("step_" + counter);
@@ -315,6 +338,7 @@ document.addEventListener(
 );
 //click en el chekcbos seleccionado
 const selectedSteps = [
+    document.getElementsByClassName("step_0"),
     document.getElementsByClassName("step_1"),
     document.getElementsByClassName("step_2"),
     document.getElementsByClassName("step_3"),
