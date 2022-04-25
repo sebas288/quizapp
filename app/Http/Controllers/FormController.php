@@ -65,7 +65,7 @@ class FormController extends Controller
             ],
             "step_1" => [
                 "id" => "step_1",
-                "title" => "¿Me siento aceptada por mi grupo de pares y amigos(as)?",
+                "title" => "¿Me siento aceptada por mis compañeros(as) de clase o amigos(as)?",
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
@@ -350,21 +350,43 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
+                "description" => "<p>Se entiende como salario mínimo el valor que por ley las empresas pagan a sus trabajadores y está en $1'117.172 pesos  (salario básico $1.000.000+ auxilio trasporte $117.172)</p>",
                 "fields" => [
                     [
                         "field" => "a1s13",
                         "type" => "checkbox",
                         "class" => "step_13",
                         "data" => 1,
-                        "label" => "Menos de un salario mínimo mensual (1 SMLV)",
+                        "label" => "Menos de $1'117.172 mensuales",
                     ],
                     [
                         "field" => "a2s13",
                         "type" => "checkbox",
                         "class" => "step_13",
                         "data" => 0,
-                        "label" => "Más de un salario mínimo (1 SMLV)",
+                        "label" => "Más de $1'117.172 mensuales",
                     ],
+                    [
+                        "field" => "a3s13",
+                        "type" => "checkbox",
+                        "class" => "step_13",
+                        "data" => 0,
+                        "label" => "No sabe",
+                    ],
+                    [
+                        "field" => "a4s13",
+                        "type" => "checkbox",
+                        "class" => "step_13",
+                        "data" => 0,
+                        "label" => "No responde",
+                    ],
+                    [
+                        "field" => "a5s13",
+                        "type" => "checkbox",
+                        "class" => "step_13",
+                        "data" => 0,
+                        "label" => "No se generan ingresos"
+                    ]
                 ],
             ],
             "step_14" => [
@@ -584,7 +606,7 @@ class FormController extends Controller
                         "field" => "a2s21",
                         "type" => "checkbox",
                         "class" => "step_21",
-                        "data" => 1,
+                        "data" => 0,
                         "label" => "No",
                     ],
                 ],
@@ -727,14 +749,28 @@ class FormController extends Controller
                         "type" => "checkbox",
                         "class" => "step_25",
                         "data" => 1,
-                        "label" => "Menos de un salario mínimo mensual (1 SMLV)",
+                        "label" => "Menos de $1'117.172 mensuales",
                     ],
                     [
                         "field" => "a2s25",
                         "type" => "checkbox",
                         "class" => "step_25",
                         "data" => 0,
-                        "label" => "Más de un salario mínimo (1 SMLV)",
+                        "label" => "Más de $1'117.172 mensuales",
+                    ],
+                    [
+                        "field" => "a3s25",
+                        "type" => "checkbox",
+                        "class" => "step_25",
+                        "data" => 0,
+                        "label" => "No sabe",
+                    ],
+                    [
+                        "field" => "a4s25",
+                        "type" => "checkbox",
+                        "class" => "step_25",
+                        "data" => 0,
+                        "label" => "No responde",
                     ],
                 ],
             ],
@@ -808,8 +844,8 @@ class FormController extends Controller
         $responses = [
             [
                 "genero" => true,
-                "titulo" => ["Diego","Erika"],
-                "image" => "/images/riesgo_alto.png",
+                "titulo" => ["<h1>Camilo</h1>","<h1>Camila</h1>"], //riesgo alto
+                "image" => ["/images/camilo_alto.png", "/images/camila_alto.png"],
                 "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un alto riesgo de un embarazo adolescente, pero ¡¡¡ANIMO!!!, Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de oferta para la Prevención  de  Embarazo  Adolescente  y  a  conectarte  con  la  línea  amiga  en  Salud 3007231123  </p>
                 <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en alto riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
                 <p>Si  eres  menor  de  14  años  recuerda  que  un  embarazo  a  tan  temprana  edad  es considerado por ley delito, por ello tienen unos derechos especiales que puedes consultar con un profesional en salud.</p>",
@@ -834,8 +870,8 @@ class FormController extends Controller
             ],
             [
                 "genero" => true,
-                "titulo" => ["Andres","Andrea"],
-                "image" => "/images/riesgo_medio.png",
+                "titulo" => ["<h1>Andres</h1>","<h1>Andrea</h1>"], //riesgo medio
+                "image" => ["/images/andres_medio.png", "/images/andrea_medio.png"],
                 "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un riesgo medio de un embarazo adolescente, pero ¡¡¡ANIMO!!!Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de Prevención de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123 </p>
                 <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
                 ",
@@ -860,8 +896,8 @@ class FormController extends Controller
             ],
             [
                 "genero" => true,
-                "titulo" => ["Camilo","Camila"],
-                "image" => "/images/riesgo_bajo.png",
+                "titulo" => ["<h1>Diego</h1>","<h1>Erika</h1>"], //riesgo bajo
+                "image" => ["/images/diego_bajo.png", "/images/erika_bajo.png"],
                 "texto" => "<p>Al estar en un riesgo bajo de un embarazo adolescente tienes una gran posibilidad de terminar una carrera universitaria, un postgrado, devengar un buen salario, sin embargo, no te confíes , siempre es necesario consultar un profesional de la salud y tener metas y sueños  claros,  te  invitamos  a  conocer  el  directorio  de  oferta  para  la  Prevención  de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123. </p>
                 ",
                 "recordatorio" => "<h1>Y RECUERDA NO CREAS EN MITOS</h1>",
@@ -885,10 +921,30 @@ class FormController extends Controller
             ],
         ];
 
+        $instituciones = [
+            "INSTITUCION EDUCATIVA FE Y ALEGRIA JOSE MARIA VELAZ",
+            "INSTITUCION EDUCATIVA BARRIO SANTA CRUZ",
+            "INSTITUCION EDUCATIVA CENTRO FORMATIVO DE ANTIOQUIA -CEFA",
+            "INSTITUCION EDUCATIVA JOSE MARIA BERNAL",
+            "INSTITUCION EDUCATIVA PRESBITERO CAMILO TORRES RESTREPO",
+            "INSTITUCION EDUCATIVA SAN AGUSTIN",
+            "INSTITUCION EDUCATIVA HECTOR ABAD GOMEZ",
+        ];
+
+        $documentos = [
+            "Cédula de ciudadanía",
+            "Tarjeta de identidad",
+            "Pasaporte",
+            "Permiso Especial de permanencia",
+            "Documento extranjero",
+        ];
+
         return view('welcome', [
             'steps' => $steps,
             'finalForm' => $finalForm,
             'responses' => $responses,
+            'instituciones' => $instituciones,
+            'documentos' => $documentos,
         ]);
     }
 }

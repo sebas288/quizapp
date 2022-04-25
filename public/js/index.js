@@ -48,9 +48,17 @@ document.addEventListener(
             document.getElementById("loading").innerHTML = "Cargando...";
 
             //get email
+            const institucion = document.getElementById("institucion").value;
+            const date = document.getElementById("date").value;
+            const tipo_documento = document.getElementById("tipo_documento").value;
+            const dni = document.getElementById("dni").value;
             const email = document.getElementById("email").value;
             const dataBack = {
                 ...JSON.parse(window.localStorage.getItem("requestTest")),
+                institucion: institucion,
+                date: date,
+                tipo_documento: tipo_documento,
+                dni: dni,
                 email: email,
             };
             httpPost(JSON.stringify(dataBack));
@@ -173,7 +181,11 @@ document.addEventListener(
             ) {
                 tabs.classList.add("d-none");
                 finalForm.classList.remove("d-none");
-
+                if (step_0.label== "Hombre") {
+                    selectGenero("men")
+                } else {
+                    selectGenero("woman")
+                }
                 const finalData = [
                     step_0,
                     step_1,
@@ -248,7 +260,6 @@ document.addEventListener(
                         break;
 
                     default:
-                        console.log("points: ", points);
                         template = 1;
                         break;
                 }
@@ -322,7 +333,6 @@ document.addEventListener(
         if (event.target.matches(".next") || event.target.matches(".back")) {
             event.preventDefault();
             const step = event.target.id.replace("step_", "");
-            console.log("donde estoy", step);
             const currenTab = document.getElementById("step_" + step);
             const counter = event.target.matches(".next")
                 ? parseInt(step) + 1
@@ -332,7 +342,6 @@ document.addEventListener(
                 alert("Debes seleccionar una respuesta para continuar");
                 return;
             }
-            console.log("currenTab: ", currenTab);
             let nextTab = null;
             if (document.getElementById("step_" + counter))
                 nextTab = document.getElementById("step_" + counter);
@@ -390,7 +399,7 @@ function httpPost(request) {
             console.log(data);
             document.getElementById("endBackend").style.display = "block";
             document.getElementById("loading").innerHTML =
-                "Respuesta enviada...";
+                "<p>Gracias por participar , los resultados se han enviado al correo registrado.</p><p>... y recuera ...Y Recuerda ¡No creas en mitos!</p>";
             window.localStorage.clear();
             return data;
             // we get the returned data
@@ -419,5 +428,12 @@ function deSelect(cls) {
     var ele = document.getElementsByClassName(cls);
     for (var i = 0; i < ele.length; i++) {
         if (ele[i].type == "checkbox") ele[i].checked = false;
+    }
+}
+
+function selectGenero(cls) {
+    var ele = document.getElementsByClassName(cls);
+    for (var i = 0; i < ele.length; i++) {
+        ele[i].classList.remove("d-none");
     }
 }

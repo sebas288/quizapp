@@ -7,6 +7,7 @@
     <title>riesgo</title>
 </head>
 <body>
-    {{ if($genero == "Hombre") ? "<h1>Titulo si es hombre medio<h1>" : "<h1>Titulo si es mujer<h1>"  }}
+    <h1>Riesgo Bajo</h1>
+    -> configurar plantilla
 </body>
 </html>
