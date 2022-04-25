@@ -230,13 +230,21 @@ document.addEventListener(
                         document
                             .getElementById("resp_1")
                             .classList.remove("d-none");
-                        template = 1;
+                        if (genero == "Hombre") {
+                            template = 1;
+                        } else {
+                            template = 1;
+                        }
                         break;
                     case points <= 26: //riesgo alto
                         document
                             .getElementById("resp_0")
                             .classList.remove("d-none");
-                        template = 2;
+                        if (genero == "Hombre") {
+                            template = 2;
+                        } else {
+                            template = 2;
+                        }
                         break;
 
                     default:
@@ -321,7 +329,7 @@ document.addEventListener(
                 : parseInt(step) - 1;
             //validaciones en las preguntas
             if (window.localStorage.getItem("step_" + step) === null) {
-                alert("debes responder la pregunta mk");
+                alert("Debes seleccionar una respuesta para continuar");
                 return;
             }
             console.log("currenTab: ", currenTab);

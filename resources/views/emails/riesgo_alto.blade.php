@@ -7,19 +7,6 @@
     <title>riesgo</title>
 </head>
 <body>
-    <div class="nav row">
-        <div class="col-md-12">
-            <ul class="d-flex align-items-center">
-                <div class="col-md-6">
-                    <li class="text-center"><img src="images/logo.png" class="logo" salt=""></li>
-                </div>
-                <div class="col-md-6">
-                    <li class="text-center"><a href="#"> Línea amiga saludable  4444448 - 3007231123</a></li>
-                </div>
-
-            </ul>
-        </div>
-    </div>
-    <h1>Riesgo alto</h1>
+    {{ if($genero == "Hombre") ? "<h1>Titulo si es hombre medio<h1>" : "<h1>Titulo si es mujer<h1>"  }}
 </body>
 </html>

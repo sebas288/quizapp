@@ -7,6 +7,6 @@
     <title>riesgo</title>
 </head>
 <body>
-    {{ if($genero == "Hombre") ? "Titulo si es hombre" : "Titulo si es mujer"  }}
+    {{ if($genero == "Hombre") ? "<h1>Titulo si es hombre medio<h1>" : "<h1>Titulo si es mujer<h1>"  }}
 </body>
 </html>

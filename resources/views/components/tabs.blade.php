@@ -18,6 +18,13 @@
                     id="{{ $field["id"] }}"
                 >
                     <h1>{{ $field["title"] }}</h1>
+
+                    <?php
+                        if(array_key_exists("description", $field)){
+                            echo "<hr/>";
+                            echo $field["description"];
+                        }
+                    ?>
                     <hr />
                     <div class="row text-center mt-5 ">
                         @foreach ($field["fields"] as $input)

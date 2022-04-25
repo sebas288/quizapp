@@ -42,7 +42,7 @@ class FormController extends Controller
         $steps = [
             "step_0" => [
                 "id" => "step_0",
-                "title" => "¿Cual es tu tipo de genero?",
+                "title" => "¿ SOY ?",
                 "show" => "d-block",
                 "btnEnd" => false,
                 "changeSteps" => true,
@@ -115,6 +115,9 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
+                "description" => "<p>¿ Qué es un Preservativo ?</p>
+                <p>Más conocido como condón, es una funda  de látex (u otros materiales sintéticos) que se coloca en el pene del hombre para evitar el paso del semen hacia la mujer, evitando infecciones y embarazos. </p>
+                <p>Tambien existen preservativos femenimos que funcionan de manera similar. </p>",
                 "fields" => [
                     [
                         "field" => "a1s3",
@@ -138,6 +141,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
+                "description" => "<p>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s4",
@@ -203,7 +207,7 @@ class FormController extends Controller
             ],
             "step_7" => [
                 "id" => "step_7",
-                "title" => "¿La  relación establecida  con tus  padres (madre o padre) te  permite hablar  de sexualidad? ",
+                "title" => "¿La  relación establecida  con tus cuidadores (madre o padre) te  permite hablar  de sexualidad? ",
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
@@ -226,10 +230,11 @@ class FormController extends Controller
             ],
             "step_8" => [
                 "id" => "step_8",
-                "title" => "¿Has  recibido información relacionada  con métodos  de planificación familiar a través de  amigos, padres  de familia, docentes  u otras personas? ",
+                "title" => "¿Has  recibido información relacionada  con métodos de anticoncepción a través de  amigos, padres  de familia, docentes  u otras personas? ",
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
+                "description" => "<p>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s8",
@@ -391,6 +396,9 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
+                "description" => "<p>¿ Qué es estrato socioeconómico ?</p><p>Es la forma en la que un pais clasifica las condiciones de la vivienda en la que habita un grupo de personas.
+                Generalemnte,  Estrato 1: Bajo-Bajo  ,    Estrato 2: Bajo , Estrato 3: Medio-Bajo ,  Estrato 4: Medio , Estrato 5: Medio-Alto ,Estrato 6: Alto.</p>
+                <p>Nota: Si no lo conoces preguntale al profesional a cargo</p>",
                 "fields" => [
                     [
                         "field" => "a1s15",
@@ -712,6 +720,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
+                "description" => "<p>Se entiende como salario mínimo el valor que por ley las empresas pagan a sus trabajadores y está en $1'117.172 pesos  (salario básico $1.000.000+ auxilio trasporte $117.172)</p>",
                 "fields" => [
                     [
                         "field" => "a1s25",
@@ -798,7 +807,8 @@ class FormController extends Controller
 
         $responses = [
             [
-                "titulo" => "<h1>Camila y Camilo</h1>",
+                "genero" => true,
+                "titulo" => ["Diego","Erika"],
                 "image" => "/images/riesgo_alto.png",
                 "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un alto riesgo de un embarazo adolescente, pero ¡¡¡ANIMO!!!, Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de oferta para la Prevención  de  Embarazo  Adolescente  y  a  conectarte  con  la  línea  amiga  en  Salud 3007231123  </p>
                 <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en alto riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
@@ -823,7 +833,8 @@ class FormController extends Controller
                 ]
             ],
             [
-                "titulo" => "<h1>Andrés y Andrea</h1>",
+                "genero" => true,
+                "titulo" => ["Andres","Andrea"],
                 "image" => "/images/riesgo_medio.png",
                 "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un riesgo medio de un embarazo adolescente, pero ¡¡¡ANIMO!!!Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de Prevención de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123 </p>
                 <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
@@ -848,7 +859,8 @@ class FormController extends Controller
                 ]
             ],
             [
-                "titulo" => "<h1>Erika y Diego</h1>",
+                "genero" => true,
+                "titulo" => ["Camilo","Camila"],
                 "image" => "/images/riesgo_bajo.png",
                 "texto" => "<p>Al estar en un riesgo bajo de un embarazo adolescente tienes una gran posibilidad de terminar una carrera universitaria, un postgrado, devengar un buen salario, sin embargo, no te confíes , siempre es necesario consultar un profesional de la salud y tener metas y sueños  claros,  te  invitamos  a  conocer  el  directorio  de  oferta  para  la  Prevención  de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123. </p>
                 ",
