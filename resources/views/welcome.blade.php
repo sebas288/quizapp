@@ -25,8 +25,12 @@
                     'display' => "d-none",
                     'steps' => $steps
                 ])
-                <div class="d-none" id="finalForm">
+                {{-- Formulario con datos básicos --}}
+                <div class="d-none" id="contactForm">
 
+                </div>
+                {{-- Vista con el título y el resultado --}}
+                <div class="d-none" id="finalForm">
                     <div class="container mb-4">
                         @foreach ($responses as $key => $value)
                         <div class="content row justify-content-center text-center my-3 d-none" id="resp_{{ $key }}">
@@ -53,6 +57,7 @@
                         </div>
                         @endforeach
 
+                        {{-- formulario para enviar el correo --}}
                         <form action="">
                             <div class="content row justify-content-center text-center">
                                 <div class="col-md-10">

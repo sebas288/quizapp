@@ -90,7 +90,7 @@ class FormController extends Controller
                 "id" => "step_2",
                 "title" => "Edad de tu primera relación sexual",
                 "show" => "d-none",
-                "btnEnd" => false,
+                "btnEnd" => true,
                 "changeSteps" => true,
                 "fields" => [
                     [
@@ -109,7 +109,30 @@ class FormController extends Controller
                     ],
                 ],
             ],
-            "step_3" => [//¿Cuál es tu estado civil actual?
+            "step_2" => [//Edad de tu primera relación sexual
+                "id" => "step_2",
+                "title" => "Edad de tu primera relación sexual",
+                "show" => "d-none",
+                "btnEnd" => true,
+                "changeSteps" => true,
+                "fields" => [
+                    [
+                        "field" => "a1s2",
+                        "type" => "checkbox",
+                        "class" => "step_2",
+                        "data" => 1,
+                        "label" => "11 a 14 años",
+                    ],
+                    [
+                        "field" => "a2s2",
+                        "type" => "checkbox",
+                        "class" => "step_2",
+                        "data" => 0,
+                        "label" => "15 a 19 años",
+                    ],
+                ],
+            ],
+            /* "step_3" => [//¿Cuál es tu estado civil actual?
                 "id" => "step_3",
                 "title" => "¿ Cuál es tu estado civil actual ?",
                 "show" => "d-none",
@@ -992,11 +1015,11 @@ class FormController extends Controller
                         "label" => "15 a 19 años",
                     ],
                 ],
-            ]
+            ] */
         ];
 
         $responses = [
-            [
+            [//riesgo alto que se muestra en el front
                 "genero" => true,
                 "titulo" => ["<h1>Camilo</h1>","<h1>Camila</h1>"], //riesgo alto
                 "image" => ["/images/camilo_alto.png", "/images/camila_alto.png"],
@@ -1022,7 +1045,7 @@ class FormController extends Controller
                     "Los que calzan grande lo tienen grande .",
                 ]
             ],
-            [
+            [//riesgo medio
                 "genero" => true,
                 "titulo" => ["<h1>Andres</h1>","<h1>Andrea</h1>"], //riesgo medio
                 "image" => ["/images/andres_medio.png", "/images/andrea_medio.png"],
@@ -1048,7 +1071,7 @@ class FormController extends Controller
                     "Los que calzan grande lo tienen grande .",
                 ]
             ],
-            [
+            [//riesgo bajo
                 "genero" => true,
                 "titulo" => ["<h1>Diego</h1>","<h1>Erika</h1>"], //riesgo bajo
                 "image" => ["/images/diego_bajo.png", "/images/erika_bajo.png"],
