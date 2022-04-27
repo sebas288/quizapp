@@ -34,13 +34,99 @@ function timer() {
 const terms = document.getElementById("terms");
 const tabs = document.getElementById("parentTab");
 const finalForm = document.getElementById("finalForm");
+const send_data_content = document.getElementById("send_data_content");
+
+function validateEmail(email) {
+    var filter =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!filter.test(email.value)) {
+        alert("Please provide a valid email address");
+        email.focus;
+        return false;
+    }
+    return true;
+}
 
 //click in elements the DOM
 document.addEventListener(
     "click",
     function (event) {
+        //send enail
+        if (event.target.matches(".email")) {
+            event.preventDefault();
+            const mail = document.getElementById("mail");
+            const validate = validateEmail(mail);
+            if (!validate) return;
+            let backData = {
+                ...JSON.parse(window.localStorage.getItem("boxemail")),
+                email: mail.value,
+            };
+            /*  backData.email = mail;
+            backData["email"] = mail; */
+            httpPost(JSON.stringify(backData), "/api/sendmail");
+            console.log(mail, mail.value, validate);
+        }
         //request back
         //end questions
+        if (event.target.matches(".see_responses")) {
+            event.preventDefault();
+            const boxemail = JSON.parse(
+                window.localStorage.getItem("boxemail")
+            );
+            send_data_content.classList.add("d-none");
+
+            let points = boxemail.points;
+            let genero = null;
+            let task =
+                JSON.parse(window.localStorage.getItem("step_0")) ?? null;
+            if (task) genero = task.label;
+            switch (true) {
+                case points <= 7: //riesgo bajo
+                    document
+                        .getElementById("resp_2")
+                        .classList.remove("d-none");
+                    if (genero == "Hombre") {
+                        template = 0;
+                    } else {
+                        template = 0;
+                    }
+                    break;
+                case points <= 14: //riesgo medio
+                    document
+                        .getElementById("resp_1")
+                        .classList.remove("d-none");
+                    if (genero == "Hombre") {
+                        template = 1;
+                    } else {
+                        template = 1;
+                    }
+                    break;
+                case points <= 26: //riesgo alto
+                    document
+                        .getElementById("resp_0")
+                        .classList.remove("d-none");
+                    if (genero == "Hombre") {
+                        template = 2;
+                    } else {
+                        template = 2;
+                    }
+                    break;
+
+                default:
+                    template = 1;
+                    break;
+            }
+            console.log(genero, points);
+            if (genero == "Hombre") {
+                selectGenero("men");
+            } else {
+                selectGenero("woman");
+            }
+            document
+                .getElementById("sendemail-content")
+                .classList.remove("d-none");
+            //alert("venteke");
+        }
         if (event.target.matches(".endBackend")) {
             event.preventDefault();
             //loading btn
@@ -50,9 +136,10 @@ document.addEventListener(
             //get email
             const institucion = document.getElementById("institucion").value;
             const date = document.getElementById("date").value;
-            const tipo_documento = document.getElementById("tipo_documento").value;
+            const tipo_documento =
+                document.getElementById("tipo_documento").value;
             const dni = document.getElementById("dni").value;
-            const email = document.getElementById("email").value;
+            const email = null;
             const dataBack = {
                 ...JSON.parse(window.localStorage.getItem("requestTest")),
                 institucion: institucion,
@@ -61,7 +148,8 @@ document.addEventListener(
                 dni: dni,
                 email: email,
             };
-            httpPost(JSON.stringify(dataBack));
+            window.localStorage.setItem("boxemail", JSON.stringify(dataBack));
+            httpPost(JSON.stringify(dataBack), "/api/test");
         }
 
         //end questions
@@ -181,16 +269,16 @@ document.addEventListener(
             ) {
                 tabs.classList.add("d-none");
                 finalForm.classList.remove("d-none");
-                if (step_0.label== "Hombre") {
-                    selectGenero("men")
+                if (step_0.label == "Hombre") {
+                    selectGenero("men");
                 } else {
-                    selectGenero("woman")
+                    selectGenero("woman");
                 }
                 const finalData = [
                     step_0,
                     step_1,
                     step_1,
-                    step_2/* ,
+                    step_2 /* ,
                     step_3,
                     step_4,
                     step_5,
@@ -214,55 +302,19 @@ document.addEventListener(
                     step_23,
                     step_24,
                     step_25,
-                    step_26, */
+                    step_26, */,
                 ];
                 let points = 0;
-                let template = 0;
+                let template = 1;
                 finalData.forEach((element) => {
                     points = points + parseInt(element.point);
                 });
 
                 //la variable {genero} viene con Hombre o Mujer
                 let genero = null;
-                let task = window.localStorage.getItem("step_0") ?? null;
+                let task =
+                    JSON.parse(window.localStorage.getItem("step_0")) ?? null;
                 if (task) genero = task.label;
-
-                switch (true) {
-                    case points <= 7: //riesgo bajo
-                        document
-                            .getElementById("resp_2")
-                            .classList.remove("d-none");
-                        if (genero == "Hombre") {
-                            template = 0;
-                        } else {
-                            template = 0;
-                        }
-                        break;
-                    case points <= 14: //riesgo medio
-                        document
-                            .getElementById("resp_1")
-                            .classList.remove("d-none");
-                        if (genero == "Hombre") {
-                            template = 1;
-                        } else {
-                            template = 1;
-                        }
-                        break;
-                    case points <= 26: //riesgo alto
-                        document
-                            .getElementById("resp_0")
-                            .classList.remove("d-none");
-                        if (genero == "Hombre") {
-                            template = 2;
-                        } else {
-                            template = 2;
-                        }
-                        break;
-
-                    default:
-                        template = 1;
-                        break;
-                }
 
                 const dsataBackend = JSON.stringify({
                     points: points,
@@ -273,23 +325,6 @@ document.addEventListener(
                 });
 
                 window.localStorage.setItem("requestTest", dsataBackend);
-
-                /* const xhr = new XMLHttpRequest();
-                xhr.open("POST", "/api/test", true);
-                xhr.setRequestHeader("Content-Type", "application/json");
-
-                xhr.onreadystatechange = function () {
-                    if (this.readyState != 4) return;
-
-                    if (this.status == 200) {
-                        const data = JSON.parse(this.responseText);
-                        console.log("data. ", data);
-                        // we get the returned data
-                    }
-                    // end of state change: it can be after some time (async)
-                };
-                xhr.send(dsataBackend); */
-
                 if (document.getElementById("score")) {
                     document.getElementById("score").innerHTML =
                         "Puntos: " + points;
@@ -358,7 +393,7 @@ document.addEventListener(
 const selectedSteps = [
     document.getElementsByClassName("step_0"),
     document.getElementsByClassName("step_1"),
-    document.getElementsByClassName("step_2")/* ,
+    document.getElementsByClassName("step_2") /* ,
     document.getElementsByClassName("step_3"),
     document.getElementsByClassName("step_4"),
     document.getElementsByClassName("step_5"),
@@ -386,20 +421,22 @@ const selectedSteps = [
     document.getElementsByClassName("autorization"),
 ];
 //send data backend
-function httpPost(request) {
+function httpPost(request, url) {
     //endBackend
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/api/test", true);
+    xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (this.readyState != 4) return;
 
         if (this.status == 200) {
             const data = JSON.parse(this.responseText);
-            console.log(data);
+            if (data.status) alert("proceso exitoso");
             document.getElementById("endBackend").style.display = "block";
             document.getElementById("loading").innerHTML =
                 "<p>Gracias por participar , los resultados se han enviado al correo registrado.</p><p>... y recuera ...Y Recuerda ¡No creas en mitos!</p>";
+
+            document.getElementById("see_responses").classList.remove("d-none");
 
             //window.localStorage.clear();
             return data;
