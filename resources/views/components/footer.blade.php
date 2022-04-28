@@ -1,3 +1,5 @@
-<footer>
-    <img src="images/footer.png" width="25%" salt="">
-</footer>
+<div>
+    <footer>
+        <img src="images/footer.png" width="25%" salt="">
+    </footer>
+</div>

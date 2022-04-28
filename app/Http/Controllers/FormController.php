@@ -555,8 +555,8 @@ class FormController extends Controller
                 "btnEnd" => false,
                 "changeSteps" => true,
                 "description" => "<p class='text-left'>¿ Qué es un Preservativo ?</p>
-                <p>Más conocido como condón, es una funda  de látex (u otros materiales sintéticos) que se coloca en el pene del hombre para evitar el paso del semen hacia la mujer, evitando infecciones y embarazos. </p>
-                <p>Tambien existen preservativos femenimos que funcionan de manera similar. </p>",
+                <p class='text-left'>Más conocido como condón, es una funda  de látex (u otros materiales sintéticos) que se coloca en el pene del hombre para evitar el paso del semen hacia la mujer, evitando infecciones y embarazos. </p>
+                <p class='text-left'>Tambien existen preservativos femenimos que funcionan de manera similar. </p>",
                 "fields" => [
                     [
                         "field" => "a1s12",
@@ -580,7 +580,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
+                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p class='text-left'>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s13",
@@ -673,7 +673,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
+                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p class='text-left'>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s17",
@@ -857,9 +857,9 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p class='text-left'>¿ Qué es estrato socioeconómico ?</p><p>Es la forma en la que un pais clasifica las condiciones de la vivienda en la que habita un grupo de personas.
+                "description" => "<p class='text-left'>¿ Qué es estrato socioeconómico ?</p><p class='text-left'>Es la forma en la que un pais clasifica las condiciones de la vivienda en la que habita un grupo de personas.
                 Generalemnte,  Estrato 1: Bajo-Bajo  ,    Estrato 2: Bajo , Estrato 3: Medio-Bajo ,  Estrato 4: Medio , Estrato 5: Medio-Alto ,Estrato 6: Alto.</p>
-                <p>Nota: Si no lo conoces preguntale al profesional a cargo</p>",
+                <p class='text-left'>Nota: Si no lo conoces preguntale al profesional a cargo</p>",
                 "fields" => [
                     [
                         "field" => "a1s24",

@@ -116,7 +116,11 @@ class SaveController extends Controller
     public function show() {
         $test = Test::select(
             'id',
-            'questions'
+            'tdni',
+            'dni',
+            'fnac',
+            'email',
+            'questions',
         )->get();
 
         return response()->json([
