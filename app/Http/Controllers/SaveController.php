@@ -114,13 +114,13 @@ class SaveController extends Controller
     }
 
     public function show() {
-        $question = Test::select(
+        $test = Test::select(
             'id',
             'questions'
         )->get();
 
         return response()->json([
-            'question' => $question
+            'test' => $test
         ], 200);
     }
 }
