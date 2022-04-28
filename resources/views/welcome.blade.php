@@ -95,6 +95,7 @@
                         @foreach ($responses as $key => $value)
                         <div class="content row justify-content-center text-center my-3 d-none" id="resp_{{ $key }}">
                             <div class="col-md-12">
+                                <h2 class="text-center">Tu personaje PREA es:</h2>
                                 <div class="mt-5 d-none men">{!! $responses[$key]["titulo"][0] !!}</div>
                                 <div class="mt-5 d-none woman">{!! $responses[$key]["titulo"][1] !!}</div>
                                 <img src="{{ $responses[$key]["image"][0] }}" class="mb-2 mt-5 d-none men" width="30%" />
