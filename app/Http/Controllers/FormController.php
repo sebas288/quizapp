@@ -90,7 +90,7 @@ class FormController extends Controller
                 "id" => "step_2",
                 "title" => "Edad de tu primera relación sexual",
                 "show" => "d-none",
-                "btnEnd" => true,
+                "btnEnd" => false,
                 "changeSteps" => true,
                 "fields" => [
                     [
@@ -109,30 +109,7 @@ class FormController extends Controller
                     ],
                 ],
             ],
-            "step_2" => [//Edad de tu primera relación sexual
-                "id" => "step_2",
-                "title" => "Edad de tu primera relación sexual",
-                "show" => "d-none",
-                "btnEnd" => true,
-                "changeSteps" => true,
-                "fields" => [
-                    [
-                        "field" => "a1s2",
-                        "type" => "checkbox",
-                        "class" => "step_2",
-                        "data" => 1,
-                        "label" => "11 a 14 años",
-                    ],
-                    [
-                        "field" => "a2s2",
-                        "type" => "checkbox",
-                        "class" => "step_2",
-                        "data" => 0,
-                        "label" => "15 a 19 años",
-                    ],
-                ],
-            ],
-            /* "step_3" => [//¿Cuál es tu estado civil actual?
+            "step_3" => [//¿Cuál es tu estado civil actual?
                 "id" => "step_3",
                 "title" => "¿ Cuál es tu estado civil actual ?",
                 "show" => "d-none",
@@ -393,7 +370,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p>Se entiende como salario mínimo el valor que por ley las empresas pagan a sus trabajadores y está en $1'117.172 pesos  (salario básico $1.000.000+ auxilio trasporte $117.172)</p>",
+                "description" => "<p class='text-left'>Se entiende como salario mínimo el valor que por ley las empresas pagan a sus trabajadores y está en $1'117.172 pesos  (salario básico $1.000.000+ auxilio trasporte $117.172)</p>",
                 "fields" => [
                     [
                         "field" => "a1s25",
@@ -577,7 +554,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p>¿ Qué es un Preservativo ?</p>
+                "description" => "<p class='text-left'>¿ Qué es un Preservativo ?</p>
                 <p>Más conocido como condón, es una funda  de látex (u otros materiales sintéticos) que se coloca en el pene del hombre para evitar el paso del semen hacia la mujer, evitando infecciones y embarazos. </p>
                 <p>Tambien existen preservativos femenimos que funcionan de manera similar. </p>",
                 "fields" => [
@@ -603,7 +580,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
+                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s13",
@@ -696,7 +673,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
+                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s17",
@@ -835,7 +812,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p>Se entiende como salario mínimo el valor que por ley las empresas pagan a sus trabajadores y está en $1'117.172 pesos  (salario básico $1.000.000+ auxilio trasporte $117.172)</p>",
+                "description" => "<p class='text-left'>Se entiende como salario mínimo el valor que por ley las empresas pagan a sus trabajadores y está en $1'117.172 pesos  (salario básico $1.000.000+ auxilio trasporte $117.172)</p>",
                 "fields" => [
                     [
                         "field" => "a1s23",
@@ -880,7 +857,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p>¿ Qué es estrato socioeconómico ?</p><p>Es la forma en la que un pais clasifica las condiciones de la vivienda en la que habita un grupo de personas.
+                "description" => "<p class='text-left'>¿ Qué es estrato socioeconómico ?</p><p>Es la forma en la que un pais clasifica las condiciones de la vivienda en la que habita un grupo de personas.
                 Generalemnte,  Estrato 1: Bajo-Bajo  ,    Estrato 2: Bajo , Estrato 3: Medio-Bajo ,  Estrato 4: Medio , Estrato 5: Medio-Alto ,Estrato 6: Alto.</p>
                 <p>Nota: Si no lo conoces preguntale al profesional a cargo</p>",
                 "fields" => [
@@ -1015,7 +992,7 @@ class FormController extends Controller
                         "label" => "15 a 19 años",
                     ],
                 ],
-            ] */
+            ]
         ];
 
         $responses = [

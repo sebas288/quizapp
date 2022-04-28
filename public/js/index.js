@@ -165,7 +165,7 @@ document.addEventListener(
             const step_2 = window.localStorage.getItem("step_2")
                 ? JSON.parse(window.localStorage.getItem("step_2"))
                 : {};
-            /*const step_3 = window.localStorage.getItem("step_3")
+            const step_3 = window.localStorage.getItem("step_3")
                 ? JSON.parse(window.localStorage.getItem("step_3"))
                 : {};
             const step_4 = window.localStorage.getItem("step_4")
@@ -236,12 +236,12 @@ document.addEventListener(
                 : {};
             const step_26 = window.localStorage.getItem("step_26")
                 ? JSON.parse(window.localStorage.getItem("step_26"))
-                : {}; */
+                : {};
 
             if (
                 Object.keys(step_0).length &
                 Object.keys(step_1).length &
-                Object.keys(step_2).length /* &
+                Object.keys(step_2).length &
                 Object.keys(step_3).length &
                 Object.keys(step_4).length &
                 Object.keys(step_5).length &
@@ -265,7 +265,7 @@ document.addEventListener(
                 Object.keys(step_23).length &
                 Object.keys(step_24).length &
                 Object.keys(step_25).length &
-                Object.keys(step_26).length */
+                Object.keys(step_26).length
             ) {
                 tabs.classList.add("d-none");
                 finalForm.classList.remove("d-none");
@@ -278,7 +278,7 @@ document.addEventListener(
                     step_0,
                     step_1,
                     step_1,
-                    step_2 /* ,
+                    step_2 ,
                     step_3,
                     step_4,
                     step_5,
@@ -302,7 +302,7 @@ document.addEventListener(
                     step_23,
                     step_24,
                     step_25,
-                    step_26, */,
+                    step_26,,
                 ];
                 let points = 0;
                 let template = 1;
@@ -393,7 +393,7 @@ document.addEventListener(
 const selectedSteps = [
     document.getElementsByClassName("step_0"),
     document.getElementsByClassName("step_1"),
-    document.getElementsByClassName("step_2") /* ,
+    document.getElementsByClassName("step_2") ,
     document.getElementsByClassName("step_3"),
     document.getElementsByClassName("step_4"),
     document.getElementsByClassName("step_5"),
@@ -417,7 +417,7 @@ const selectedSteps = [
     document.getElementsByClassName("step_23"),
     document.getElementsByClassName("step_24"),
     document.getElementsByClassName("step_25"),
-    document.getElementsByClassName("step_26") */,
+    document.getElementsByClassName("step_26"),
     document.getElementsByClassName("autorization"),
 ];
 //send data backend
