@@ -46,6 +46,15 @@
                                     </select>
                                 </div>
                                 <div class="col-md-5">
+                                    <label for="other">Otro</label>
+                                    <br>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="other"
+                                        name="other" />
+                                </div>
+                                <div class="col-md-5">
                                     <label>Fecha de nacimiento</label>
                                     <br>
                                     <input
@@ -71,7 +80,7 @@
                                         id="dni"
                                         name="dni" />
                                 </div>
-                                {{-- <div class="col-md-5">
+                                <div class="col-md-5">
                                     <label for="email">Correo Electronico</label>
                                     <br>
                                     <input
@@ -79,7 +88,7 @@
                                         class="form-control"
                                         id="email"
                                         name="email" />
-                                </div> --}}
+                                </div>
                                 <div class="col-md-10 my-4">
 
                                     <button id="endBackend" class="endBackend btn btn-sm btn-block btn-primary mt-2">Ver las respuestas.
@@ -116,7 +125,7 @@
 
                         <div class="col-md-5 mt-5 text-left d-none" id="sendemail-content">
                             <p for="email">¿Quieres recibir las respuestas al correo electronico?</p>
-                            <input type="text" id="mail" class="form-control" value="" />
+                            {{-- <input type="text" id="mail" class="form-control" value="" /> --}}
                             <button class="email btn btn-sm btn-primary btn-block mt-2">Enviar</button>
                          </div>
 
@@ -134,5 +143,14 @@
         </div>
         @include('components.footer')
     </body>
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+    <!-- select to jquery -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="/js/index.js"></script>
+    <script>
+        $(document).ready(() => {
+            $("#institucion").select2();
+        })
+    </script>
 </html>

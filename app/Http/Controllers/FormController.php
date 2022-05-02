@@ -86,7 +86,7 @@ class FormController extends Controller
                     ],
                 ],
             ],
-            /* "step_2" => [//Edad de tu primera relación sexual
+            "step_2" => [//Edad de tu primera relación sexual
                 "id" => "step_2",
                 "title" => "Edad de tu primera relación sexual",
                 "show" => "d-none",
@@ -992,7 +992,7 @@ class FormController extends Controller
                         "label" => "15 a 19 años",
                     ],
                 ],
-            ] */
+            ]
         ];
 
         $responses = [

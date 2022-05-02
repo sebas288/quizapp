@@ -114,17 +114,21 @@ class SaveController extends Controller
     }
 
     public function show() {
-        $test = Test::select(
-            'id',
-            'tdni',
-            'dni',
-            'fnac',
-            'email',
-            'questions',
-        )->get();
+        $test = Test::select('id','tdni','dni','fnac','email','questions')->get();
+        $data = [];
+        foreach ($test as $qt) {
+            array_push($data, [
+                "id" => $qt->id,
+                "tdni" => $qt->tdni,
+                "dni" => $qt->dni,
+                "fnac" => $qt->fnac,
+                "email" => $qt->email,
+                "questions" => json_decode($qt->questions),
+            ]);
+        }
 
         return response()->json([
-            'test' => $test
+            'test' => $data
         ], 200);
     }
 }
