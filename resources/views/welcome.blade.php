@@ -35,9 +35,48 @@
 
                          {{-- formulario para enviar el correo --}}
                          <form id="send_data_content">
-                            <div class="content row justify-content-center text-center my-5">
-                                <div class="col-md-5">
-                                    <label>Institución Educativa</label>
+                             <div class="content row justify-content-center text-left my-5">
+                                <div class="col-md-11 text-center mt-5 mb-3">
+                                    <h1>Ahora cuentanos más sobre ti !</h1>
+                                </div>
+                                <div class="col-md-5 mb-3 background-form">
+                                    <label class="mt-2">Nombres y Apellidos</label>
+                                    <br>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="names"
+                                        name="names" />
+                                </div>
+                                <div class="col-md-5 mb-3 background-form ml-4">
+                                    <label class="mt-2">Número celular</label>
+                                    <br>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="celular"
+                                        name="celular" />
+                                </div>
+                                <div class="col-md-5 mb-3 background-form">
+                                    <label class="mt-2">Comuna de residencia</label>
+                                    <br>
+                                    <select name="comunas" id="comunas" class="form-control">
+                                        @foreach ( $comunas as $co)
+                                            <option value="{{ $co}}">{{ $co}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-5 mb-3 background-form ml-4">
+                                    <label class="mt-2">Barrio</label>
+                                    <br>
+                                    <select name="barrio" id="barrio" class="form-control">
+                                        @foreach ( $barrios as $br)
+                                            <option value="{{ $br }}">{{ $br }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-5 mb-3 background-form">
+                                    <label class="mt-2">Institución Educativa</label>
                                     <br>
                                     <select name="institucion" id="institucion" class="form-control">
                                         @foreach ( $instituciones as $it)
@@ -45,8 +84,8 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-5">
-                                    <label for="other">Otro</label>
+                                <div class="col-md-5 mb-3 background-form ml-4">
+                                    <label for="other" class="mt-2">Otro</label>
                                     <br>
                                     <input
                                         type="text"
@@ -54,8 +93,8 @@
                                         id="other"
                                         name="other" />
                                 </div>
-                                <div class="col-md-5">
-                                    <label>Fecha de nacimiento</label>
+                                <div class="col-md-5 mb-3 background-form">
+                                    <label class="mt-2">Fecha de nacimiento</label>
                                     <br>
                                     <input
                                         type="date"
@@ -63,8 +102,8 @@
                                         id="date"
                                         name="date" />
                                 </div>
-                                <div class="col-md-5">
-                                    <label>Tipo de documento</label>
+                                <div class="col-md-5 mb-3 background-form ml-4">
+                                    <label class="mt-2">Tipo de documento</label>
                                     <br>
                                     <select name="tipo_documento" id="tipo_documento" class="form-control">
                                         @foreach ( $documentos as $dc)
@@ -72,16 +111,16 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-5">
-                                    <label>Documento de identidad</label>
+                                <div class="col-md-5 mb-3 background-form">
+                                    <label class="mt-2">Documento de identidad</label>
                                     <input
                                         type="text"
                                         class="form-control"
                                         id="dni"
                                         name="dni" />
                                 </div>
-                                <div class="col-md-5">
-                                    <label for="email">Correo Electronico</label>
+                                <div class="col-md-5 mb-3 background-form ml-4">
+                                    <label for="email" class="mt-2">Correo Electronico</label>
                                     <br>
                                     <input
                                         type="email"
@@ -91,7 +130,7 @@
                                 </div>
                                 <div class="col-md-10 my-4">
 
-                                    <button id="endBackend" class="endBackend btn btn-sm btn-block btn-primary mt-2">Ver las respuestas.
+                                    <button id="endBackend" class="endBackend btn btn-sm btn-block btn-pink mt-2">Enviar Respuestas.
                                     </button>
                                     {{-- <button id="endBackend" class="endBackend btn btn-sm btn-block btn-primary mt-2">Enviar respuestas al correo.
                                     </button> --}}
@@ -151,6 +190,7 @@
     <script>
         $(document).ready(() => {
             $("#institucion").select2();
+            $("#barrio").select2();
         })
     </script>
 </html>

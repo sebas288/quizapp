@@ -25,10 +25,10 @@ function timer() {
         let seconds = time - customParse;
         if (min >= 1)
             document.getElementById("minDisplay").innerHTML =
-                "Tiempo: " + parseInt(min) + "";
+                "⏳ " + parseInt(min) + "";
         document.getElementById("safeTimerDisplay").innerHTML =
             parseInt(time / 60) < 1
-                ? "Tiempo: " + time + ""
+                ? "⏳ " + time + ""
                 : ":" + seconds + "";
 
         finalTime["min"] = parseInt(min);
@@ -47,7 +47,7 @@ const terms = document.getElementById("terms");
 const tabs = document.getElementById("parentTab");
 const finalForm = document.getElementById("finalForm");
 const send_data_content = document.getElementById("send_data_content");
-const nsteps = 1;
+const nsteps = 26;
 
 //click in elements the DOM
 document.addEventListener(
@@ -160,6 +160,7 @@ document.addEventListener(
             //get email
             //const institucion = document.getElementById("institucion").value;
             const institucion = $("#select2-institucion-container").text();
+            const barrio = $("#select2-barrio-container").text();
             const other = $("#other").val();
             const date = document.getElementById("date").value;
             const tipo_documento =
@@ -171,6 +172,7 @@ document.addEventListener(
                 date == "" ||
                 tipo_documento == "" ||
                 dni == "" ||
+                barrio == "" ||
                 email == ""
             ) {
                 Swal.fire({
@@ -179,7 +181,7 @@ document.addEventListener(
                     text: "Debes de llenar todos los campos!",
                     footer: '<a href="">Ayuda?</a>',
                 });
-                console.log("institucion ", institucion, other);
+                console.log("institucion ", institucion, other, barrio);
                 document.getElementById("endBackend").style.display = "block";
                 document.getElementById("loading").innerHTML = "";
                 return;
@@ -248,7 +250,12 @@ document.addEventListener(
 
                 //document.getElementById("counter").classList.add("d-none");
             } else {
-                alert("Debes contestar todas las preguntas");
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Para continuar debes responder todas las preguntas",
+                    footer: '<a href="">Ayuda?</a>',
+                });
             }
         }
         //create object for responses
@@ -290,7 +297,12 @@ document.addEventListener(
                 : parseInt(step) - 1;
             //validaciones en las preguntas
             if (window.localStorage.getItem("step_" + step) === null) {
-                alert("Debes seleccionar una respuesta para continuar");
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Debes seleccionar alguna opción para continuar",
+                    footer: '<a href="">Ayuda?</a>',
+                });
                 return;
             }
             let nextTab = null;
@@ -329,7 +341,13 @@ function httpPost(request, url) {
 
         if (this.status == 200) {
             const data = JSON.parse(this.responseText);
-            if (data.status) alert("proceso exitoso");
+            if (data.status)
+                Swal.fire({
+                    icon: "success",
+                    title: "Respuestas enviadas",
+                    text: "Gracias por participar, las respuestas fueron enviadas a tu correo",
+                    footer: '<a href="">Ayuda?</a>',
+                });
             document.getElementById("endBackend").style.display = "block";
             document.getElementById("loading").innerHTML =
                 "<p>Gracias por participar , los resultados se han enviado al correo registrado.</p><p>... y recuera ...Y Recuerda ¡No creas en mitos!</p>";

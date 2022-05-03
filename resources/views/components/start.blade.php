@@ -3,21 +3,23 @@
 @include('components.head')
 <body>
     <div class="container" id="terms">
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center m-5">
             <div class="col-md-4 d-flex align-items-center">
                     <img src="images/start.png" alt="" width="100%">
             </div>
         </div>
-        <h1 class="text-center m-4">Bienvenido al TEST ¿ Qué personaje eres ?</h1>
-        <p><strong>Esta actividad te servirá para analizar qué tan cerca o lejos estás de tener un embarazo en tu adolescencia.</strong></p>
-        <p>Al final te damos unos TIPS o estrategias básicas para prevenir esta situación.</p>
-        <p>Te invitamos a responder con total sinceridad, sólo tú conocerás el resultado.</p>
-        <p>Si tienes alguna duda, la puedes resolver con tu profesional de acompañamiento o comunicarte a la línea amiga saludable de la Alcaldía de Medellín (604) 444 44 48 o al 300 723 1123. <a href="https://web.whatsapp.com/send?phone=573007231123" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="" width="30px"></a></p>
-        <br/>
-        <p>Para continuar:</p>
+        <div class="text-left m-4">
+            <h1 style="" class="mb-5 p-1">Bienvenido al TEST ¿ Qué personaje eres ?</h1>
+            <p><strong>Esta actividad te servirá para analizar qué tan cerca o lejos estás de tener un embarazo en tu adolescencia.</strong></p>
+            <p>Al final te damos unos TIPS o estrategias básicas para prevenir esta situación.</p>
+            <p>Te invitamos a responder con total sinceridad, sólo tú conocerás el resultado.</p>
+            <p>Si tienes alguna duda, la puedes resolver con tu profesional de acompañamiento o comunicarte a la línea amiga saludable de la Alcaldía de Medellín (604) 444 44 48 o al 300 723 1123. <a href="https://web.whatsapp.com/send?phone=573007231123" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="" width="30px"></a></p>
+            <br/>
+            <p>Para continuar:</p>
+        </div>
         <p class="text-center autorizacion">¿Autoriza al Municipio de Medellín para realizar tratamiento de sus datos personales?</p>
         <div class="d-flex align-items-baseline justify-content-center autorizacion-check">
-            <div class="mr-2">
+            <div class="mr-2 m-3">
                 <input class="autorization" name="si" type="checkbox" >
                 <label for="Si">SI</label>
             </div>
@@ -29,8 +31,8 @@
         <p style="font-size: 14px">De acuerdo con la Ley 1581 de 2012 de protección de los datos personales en Colombia autorizo al
         municipio de Medellín identificado con NIT N.º 890.905.211-1, como Responsable para tratar mis datos
         personales conforme a su Política de Tratamiento de Datos Personales, disponible en
-        <a href="www.medellin.gov.co">www.medellin.gov.co</a> , para que sean incluidos en sus bases de datos para los fines descritos en el
-        siguiente <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal">enlace </a>. </p>
+        <a href="www.medellin.gov.co"><u>www.medellin.gov.co</u></a> , para que sean incluidos en sus bases de datos para los fines descritos en el
+        siguiente <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><u>enlace </u></a>. </p>
     </div>
 
 
@@ -52,7 +54,7 @@
                 </p>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-pink" data-dismiss="modal">OK</button>
             </div>
             </div>
         </div>
@@ -75,7 +77,7 @@
                 </p>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-pink" data-dismiss="modal">OK</button>
             </div>
             </div>
         </div>

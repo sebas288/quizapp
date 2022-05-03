@@ -1,6 +1,6 @@
 <div class="{{ $display }} mt-5" id="parentTab">
     <div class="container">
-        <div class="row justify-content-center mt-4 align-items-baseline">
+        <div class="row justify-content-center mt-4 align-items-baseline ml-3">
             <div class="col-md-10 d-flex ">
                 <h3 id="counter"></h3>
                 <h3>
@@ -18,8 +18,6 @@
                     id="{{ $field["id"] }}"
                 >
                     <h1>{{ $field["title"] }}</h1>
-
-                    <hr />
                     <div class="row text-center mt-5 ">
                         @foreach ($field["fields"] as $input)
                         @switch($input["type"])
@@ -73,19 +71,19 @@
                             <div class="d-flex align-items-center justify-content-center mt-5">
                                 @if ($field["changeSteps"])
                                     <button
-                                        type="submit" class="btn btn-primary back mr-2"
+                                        type="submit" class="btn btn-pink back mr-2"
                                         id="{{ $field["id"] }}"
                                     >Atras</button>
                                     <button
                                         type="submit"
-                                        class="btn btn-primary next"
+                                        class="btn btn-pink next"
                                         id="{{ $field["id"] }}"
                                     >Siguiente</button>
                                 @endif
                                 @if ($field["btnEnd"])
                                 <button
                                     type="submit"
-                                    class="btn btn-primary end-questions ml-2"
+                                    class="btn btn-pink end-questions ml-2"
                                     id="end-questions"
                                 >Terminar</button>
 

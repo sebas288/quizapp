@@ -1,13 +1,20 @@
 html, body {
-    background-color: #fff;
+    background-color: #F0F1F3;
     color: black;
-    font-family: "Quicksand", Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 200;
     height: 100vh;
     margin: 0;
+    padding: 0;
 }
 
-
+h1 {
+    background-color: #FAD3D6;
+    border-radius: 10px;
+}
+a  {
+    color: #AD3F96;
+}
 
 /* nav */
 .nav{
@@ -27,6 +34,7 @@ html, body {
     text-decoration: none;
     font-weight: 700;
 }
+
 
 /* content */
 .content{
@@ -88,7 +96,6 @@ footer{
 
 p{
     font-size: 20px;
-    font-weight: 500;
 }
 
 .logo {
@@ -106,3 +113,32 @@ p{
   }
 
 
+.btn-pink{
+    color: #AD3F96;
+    background-color: #FAD3D6;
+    font-weight: bold;
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #FAD3D6;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 1px solid #AD3F96;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.background-form{
+    background-color: #FAD3D6;
+    border-radius: 10px;
+    height: 90px;
+
+}
