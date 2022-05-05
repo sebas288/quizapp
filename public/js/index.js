@@ -27,9 +27,7 @@ function timer() {
             document.getElementById("minDisplay").innerHTML =
                 "⏳ " + parseInt(min) + "";
         document.getElementById("safeTimerDisplay").innerHTML =
-            parseInt(time / 60) < 1
-                ? "⏳ " + time + ""
-                : ":" + seconds + "";
+            parseInt(time / 60) < 1 ? "⏳ " + time + "" : ":" + seconds + "";
 
         finalTime["min"] = parseInt(min);
         finalTime["sec"] =
@@ -201,21 +199,48 @@ document.addEventListener(
         //end questions
         if (event.target.matches(".end-questions")) {
             event.preventDefault();
+
+            const task1 = window.localStorage.getItem("step_0")
+                ? JSON.parse(window.localStorage.getItem("step_0"))
+                : { label: null };
+            const task4 = window.localStorage.getItem("step_4")
+                ? JSON.parse(window.localStorage.getItem("step_4"))
+                : { label: null };
+
+            if (task4 && task1?.label == "No" && parseInt(step) == 5)
+                add = add + 1;
+
             for (let i = 0; i <= nsteps; i++) {
-                obj["step_" + i] = window.localStorage.getItem("step_" + i)
-                    ? JSON.parse(window.localStorage.getItem("step_" + i))
-                    : {};
+                if (
+                    !task1 ||
+                    (task1?.label !== "Hombre" && i !== 26) ||
+                    !task4 ||
+                    (task4?.label !== "No" && i !== 4)
+                )
+                    obj["step_" + i] = window.localStorage.getItem("step_" + i)
+                        ? JSON.parse(window.localStorage.getItem("step_" + i))
+                        : {};
             }
 
             let vforms = true;
             for (let i = 0; i <= nsteps; i++) {
-                if (!Object.keys(obj["step_" + i]).length) vforms = false;
+                if (!task4 || (task4?.label !== "No" && i !== 4)) {
+                    if (!Object.keys(obj["step_" + i]).length) vforms = false;
+                }
+
+                if (
+                    !task1 ||
+                    (task1?.label !== "Hombre" && i !== 26) ||
+                    !task4 ||
+                    (task4?.label !== "No" && i !== 4)
+                )
+                    if (!Object.keys(obj["step_" + i]).length) vforms = false;
             }
 
             if (vforms) {
                 tabs.classList.add("d-none");
                 finalForm.classList.remove("d-none");
-                if (obj["step_0"].label == "Hombre") {
+                if (obj["step_0"]?.label == "Hombre") {
                     selectGenero("men");
                 } else {
                     selectGenero("woman");
@@ -292,9 +317,24 @@ document.addEventListener(
             event.preventDefault();
             const step = event.target.id.replace("step_", "");
             const currenTab = document.getElementById("step_" + step);
+
+            let add = 1;
+            let less = 1;
+
+            const menstruacion = bussineRules("menstruacion", step);
+            const tienes_hijos = bussineRules("tienes_hijos", step);
+            if (menstruacion) add = menstruacion?.add;
+            if (tienes_hijos) {
+                add = tienes_hijos?.add;
+                less = tienes_hijos?.less;
+            }
+
+            if (menstruacion?.next && parseInt(step) == 25)
+                $(".end-questions").click();
+
             const counter = event.target.matches(".next")
-                ? parseInt(step) + 1
-                : parseInt(step) - 1;
+                ? parseInt(step) + add
+                : parseInt(step) - less;
             //validaciones en las preguntas
             if (window.localStorage.getItem("step_" + step) === null) {
                 Swal.fire({
@@ -329,6 +369,35 @@ selectedSteps = [
     ...selectedSteps,
     document.getElementsByClassName("autorization"),
 ];
+
+function bussineRules(rule, step) {
+    let add = 1;
+    let less = 1;
+    switch (rule) {
+        case "menstruacion":
+            const task1 = window.localStorage.getItem("step_0")
+                ? JSON.parse(window.localStorage.getItem("step_0"))
+                : { label: null };
+            if (task1 && task1?.label == "Hombre" && parseInt(step) == 25)
+                add = 2;
+            console.log("add ", add);
+            return { add: add, less, next: true };
+        case "tienes_hijos":
+            const task4 = window.localStorage.getItem("step_4")
+                ? JSON.parse(window.localStorage.getItem("step_4"))
+                : { label: null };
+            if (task4 && task4?.label == "No" && parseInt(step) == 4) add = 2;
+            if (task4 && task4?.label == "No" && parseInt(step) == 6) less = 2;
+            return { add: add, less, next: true };
+
+        default:
+            return {
+                add: 1,
+                less: 1,
+                next: false,
+            };
+    }
+}
 
 //send data backend
 function httpPost(request, url) {
