@@ -146,8 +146,10 @@
                                 <h2 class="text-center">Tu personaje PREA es:</h2>
                                 <div class="mt-5 d-none men">{!! $responses[$key]["titulo"][0] !!}</div>
                                 <div class="mt-5 d-none woman">{!! $responses[$key]["titulo"][1] !!}</div>
+                                <div class="mt-5 d-none otro">{!! $responses[$key]["titulo"][2] !!}</div>
                                 <img src="{{ $responses[$key]["image"][0] }}" class="mb-2 mt-5 d-none men" width="30%" />
                                 <img src="{{ $responses[$key]["image"][1] }}" class="mb-2 mt-5 d-none woman" width="30%" />
+                                <img src="{{ $responses[$key]["image"][2] }}" class="mb-2 mt-5 d-none otro" width="30%" />
                                 <div class="text-justify mt-5">{!! $responses[$key]["texto"] !!}</div>
                                 {{--  <h3 class="mt-5 text-start">El titulo aquel</h3> --}}
                                 <div class="mt-5">{!! $responses[$key]["recordatorio"] !!}</div>

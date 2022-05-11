@@ -141,8 +141,10 @@ document.addEventListener(
             console.log(genero, points);
             if (genero == "Hombre") {
                 selectGenero("men");
-            } else {
+            } else if(genero == "Mujer"){
                 selectGenero("woman");
+            }else {
+                selectGenero("otro");
             }
             document
                 .getElementById("sendemail-content")
@@ -211,6 +213,7 @@ document.addEventListener(
                 add = add + 1;
 
             for (let i = 0; i <= nsteps; i++) {
+                console.log("que hay aca", obj)
                 if (
                     !task1 ||
                     (task1?.label !== "Hombre" && i !== 26) ||
@@ -242,8 +245,10 @@ document.addEventListener(
                 finalForm.classList.remove("d-none");
                 if (obj["step_0"]?.label == "Hombre") {
                     selectGenero("men");
-                } else {
+                } else if (obj["step_0"]?.label == "Mujer"){
                     selectGenero("woman");
+                } else {
+                    selectGenero("otro");
                 }
 
                 let points = 0;
@@ -259,6 +264,7 @@ document.addEventListener(
                     JSON.parse(window.localStorage.getItem("step_0")) ?? null;
                 if (task) genero = task.label;
 
+                console.log("obj",obj);
                 const dsataBackend = JSON.stringify({
                     points: points,
                     finalTime: finalTime,
@@ -454,9 +460,18 @@ function deSelect(cls) {
 }
 
 function selectGenero(cls) {
+    console.log("cls",cls,document.getElementsByClassName(cls));
     var ele = document.getElementsByClassName(cls);
     for (var i = 0; i < ele.length; i++) {
         ele[i].classList.remove("d-none");
+        hideGenero(cls);
+    }
+}
+function hideGenero(cls) {
+    const genero = cls == 'men' ? 'woman' : 'men';
+    var ele = document.getElementsByClassName(genero);
+    for (var i = 0; i < ele.length; i++) {
+        ele[i].classList.add("d-none");
     }
 }
 
