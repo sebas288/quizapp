@@ -28,18 +28,11 @@ class SaveController extends Controller
             "template" => $request->template,
             "genero" => $request->genero,
         ]);
-
         $error = null;
         $email = null;
+        //handle exceptions
         try {
             $test->save();
-            /* $email = $this->sendEmails($request->email, "edwin123067@gmail.com", $this->templates[$request->template], [
-                "email" => $request->email,
-                "finalData" => $request->finalData,
-                "finalTime" => $request->finalTime,
-                "points" => $request->points,
-                "genero" => $request->genero,
-            ], "Caracterización yo decido"); */
         } catch (\Exception $e) {
             $error = $e->getMessage();
         }
