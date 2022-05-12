@@ -65,7 +65,6 @@ document.addEventListener(
                 email: mail,
             };
             httpPost(JSON.stringify(backData), "/api/sendmail");
-            console.log(mail, validate);
         }
         //request back
         //end questions
@@ -84,7 +83,6 @@ document.addEventListener(
             //obtener el id y elemento de la pregunta de la edad
             const dateAge = $("#date").val();
             const age = Edad(dateAge);
-            console.log("edad para sebas");
             //hacemos el if o la estrucruda condicional y sumamos el punto a points
             if (
                 task9 == "6°" ||
@@ -138,12 +136,12 @@ document.addEventListener(
                     template = 1;
                     break;
             }
-            console.log(genero, points);
+
             if (genero == "Hombre") {
                 selectGenero("men");
-            } else if(genero == "Mujer"){
+            } else if (genero == "Mujer") {
                 selectGenero("woman");
-            }else {
+            } else {
                 selectGenero("otro");
             }
             document
@@ -181,7 +179,7 @@ document.addEventListener(
                     text: "Debes de llenar todos los campos!",
                     footer: '<a href="">Ayuda?</a>',
                 });
-                console.log("institucion ", institucion, other, barrio);
+
                 document.getElementById("endBackend").style.display = "block";
                 document.getElementById("loading").innerHTML = "";
                 return;
@@ -213,7 +211,6 @@ document.addEventListener(
                 add = add + 1;
 
             for (let i = 0; i <= nsteps; i++) {
-                console.log("que hay aca", obj)
                 if (
                     !task1 ||
                     (task1?.label !== "Hombre" && i !== 26) ||
@@ -223,6 +220,8 @@ document.addEventListener(
                     obj["step_" + i] = window.localStorage.getItem("step_" + i)
                         ? JSON.parse(window.localStorage.getItem("step_" + i))
                         : {};
+
+                console.log("que hay aca", obj, task1);
             }
 
             let vforms = true;
@@ -237,7 +236,15 @@ document.addEventListener(
                     !task4 ||
                     (task4?.label !== "No" && i !== 4)
                 )
-                    if (!Object.keys(obj["step_" + i]).length) vforms = false;
+                    if (!Object.keys(obj["step_" + i]).length) {
+                        //validación final cuando es mujer
+                        if (
+                            task1?.label == "Hombre" &&
+                            i !== 5 &&
+                            !Object.keys(obj["step_" + 5]).length
+                        )
+                            vforms = false;
+                    }
             }
 
             if (vforms) {
@@ -245,7 +252,7 @@ document.addEventListener(
                 finalForm.classList.remove("d-none");
                 if (obj["step_0"]?.label == "Hombre") {
                     selectGenero("men");
-                } else if (obj["step_0"]?.label == "Mujer"){
+                } else if (obj["step_0"]?.label == "Mujer") {
                     selectGenero("woman");
                 } else {
                     selectGenero("otro");
@@ -264,7 +271,6 @@ document.addEventListener(
                     JSON.parse(window.localStorage.getItem("step_0")) ?? null;
                 if (task) genero = task.label;
 
-                console.log("obj",obj);
                 const dsataBackend = JSON.stringify({
                     points: points,
                     finalTime: finalTime,
@@ -386,7 +392,7 @@ function bussineRules(rule, step) {
                 : { label: null };
             if (task1 && task1?.label == "Hombre" && parseInt(step) == 25)
                 add = 2;
-            console.log("add ", add);
+
             return { add: add, less, next: true };
         case "tienes_hijos":
             const task4 = window.localStorage.getItem("step_4")
@@ -460,7 +466,6 @@ function deSelect(cls) {
 }
 
 function selectGenero(cls) {
-    console.log("cls",cls,document.getElementsByClassName(cls));
     var ele = document.getElementsByClassName(cls);
     for (var i = 0; i < ele.length; i++) {
         ele[i].classList.remove("d-none");
@@ -468,7 +473,7 @@ function selectGenero(cls) {
     }
 }
 function hideGenero(cls) {
-    const genero = cls == 'men' ? 'woman' : 'men';
+    const genero = cls == "men" ? "woman" : "men";
     var ele = document.getElementsByClassName(genero);
     for (var i = 0; i < ele.length; i++) {
         ele[i].classList.add("d-none");
