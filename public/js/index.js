@@ -192,6 +192,7 @@ document.addEventListener(
                 dni: dni,
                 email: email,
             };
+            console.log(dataBack)
             window.localStorage.setItem("boxemail", JSON.stringify(dataBack));
             httpPost(JSON.stringify(dataBack), "/api/test");
         }
@@ -429,7 +430,7 @@ function httpPost(request, url) {
                 });
             document.getElementById("endBackend").style.display = "block";
             document.getElementById("loading").innerHTML =
-                "<p>Gracias por participar , los resultados se han enviado al correo registrado.</p><p>... y recuera ...Y Recuerda ¡No creas en mitos!</p>";
+                "<p class='text-center'>Gracias por participar , Gracias por participar , dale clic en ver respuesta para conocer el resultado</p>";
 
             document.getElementById("see_responses").classList.remove("d-none");
             //window.localStorage.clear();

@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="col-md-10 my-4">
 
-                                    <button id="endBackend" class="endBackend btn btn-sm btn-block btn-pink mt-2">Enviar Respuestas.
+                                    <button id="endBackend" class="endBackend btn btn-sm btn-block btn-pink mt-2">¿Qué personaje PREA soy?
                                     </button>
                                     {{-- <button id="endBackend" class="endBackend btn btn-sm btn-block btn-primary mt-2">Enviar respuestas al correo.
                                     </button> --}}
