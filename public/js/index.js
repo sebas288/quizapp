@@ -220,8 +220,6 @@ document.addEventListener(
                     obj["step_" + i] = window.localStorage.getItem("step_" + i)
                         ? JSON.parse(window.localStorage.getItem("step_" + i))
                         : {};
-
-                console.log("que hay aca", obj, task1);
             }
 
             let vforms = true;
