@@ -16,6 +16,12 @@ class SaveController extends Controller
 
     public function store(Request $request){
         $test = new Test();
+        $test->nombre = $request->nombre;
+        $test->celular = $request->celular;
+        $test->comunas = $request->comunas;
+        $test->barrio = $request->barrio;
+        $test->institucion = $request->institucion;
+        $test->other = $request->other;
         $test->tdni = $request->tdni;
         $test->dni = $request->dni;
         $test->fnac = $request->date;
@@ -70,7 +76,7 @@ class SaveController extends Controller
             "finalTime" => $request->finalTime,
             "points" => $request->points,
             "genero" => $request->genero,
-        ], "Caracterización yo decido");
+        ], "YO DECIDO CUANDO");
 
         return response()->json([
             "status" => $email["status"],
@@ -107,7 +113,7 @@ class SaveController extends Controller
     }
 
     public function show() {
-        $test = Test::select('id','tdni','dni','fnac','email','questions')->get();
+        $test = Test::select('id','tdni','dni','fnac','email','nombre','celular','comunas','barrio','institucion','other','questions')->get();
         $data = [];
         foreach ($test as $qt) {
             array_push($data, [
@@ -116,6 +122,12 @@ class SaveController extends Controller
                 "dni" => $qt->dni,
                 "fnac" => $qt->fnac,
                 "email" => $qt->email,
+                "nombre" => $qt->nombre,
+                "celular" => $qt->celular,
+                "comunas" => $qt->comunas,
+                "barrio" => $qt->barrio,
+                "institucion" => $qt->institucion,
+                "other" => $qt->other,
                 "questions" => json_decode($qt->questions),
             ]);
         }

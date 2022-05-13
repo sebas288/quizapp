@@ -45,8 +45,8 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        id="names"
-                                        name="names" />
+                                        id="nombre"
+                                        name="nombre" />
                                 </div>
                                 <div class="col-md-5 mb-3 background-form ml-4">
                                     <label class="mt-2">Número celular</label>

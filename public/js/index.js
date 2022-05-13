@@ -45,7 +45,7 @@ const terms = document.getElementById("terms");
 const tabs = document.getElementById("parentTab");
 const finalForm = document.getElementById("finalForm");
 const send_data_content = document.getElementById("send_data_content");
-const nsteps = 26;
+const nsteps = 26; //26
 
 //click in elements the DOM
 document.addEventListener(
@@ -157,8 +157,11 @@ document.addEventListener(
 
             //get email
             //const institucion = document.getElementById("institucion").value;
-            const institucion = $("#select2-institucion-container").text();
+            const nombre = document.getElementById("nombre").value;
+            const celular = document.getElementById("celular").value;
+            const comunas = document.getElementById("comunas").value;
             const barrio = $("#select2-barrio-container").text();
+            const institucion = $("#select2-institucion-container").text();
             const other = $("#other").val();
             const date = document.getElementById("date").value;
             const tipo_documento =
@@ -166,11 +169,14 @@ document.addEventListener(
             const dni = document.getElementById("dni").value;
             const email = $("#email").val();
             if (
+                nombre == "" ||
+                celular == "" ||
+                comunas == "" ||
+                barrio == "" ||
                 institucion == "" ||
                 date == "" ||
                 tipo_documento == "" ||
                 dni == "" ||
-                barrio == "" ||
                 email == ""
             ) {
                 Swal.fire({
@@ -186,13 +192,17 @@ document.addEventListener(
             }
             const dataBack = {
                 ...JSON.parse(window.localStorage.getItem("requestTest")),
+                nombre: nombre,
+                celular: celular,
+                comunas: comunas,
+                barrio: barrio,
                 institucion: institucion,
+                other: other,
                 date: date,
-                tipo_documento: tipo_documento,
+                tdni: tipo_documento,
                 dni: dni,
                 email: email,
             };
-            console.log(dataBack)
             window.localStorage.setItem("boxemail", JSON.stringify(dataBack));
             httpPost(JSON.stringify(dataBack), "/api/test");
         }
@@ -257,13 +267,13 @@ document.addEventListener(
                     selectGenero("otro");
                 }
 
-                let points = 0;
+                let points = 0; //cuando es hombre se setea este valor
                 let template = 1;
 
                 Object.entries(obj).map((stp) => {
                     points = points + parseInt(stp[1].point);
                 });
-
+                console.log(points)
                 //la variable {genero} viene con Hombre o Mujer
                 let genero = null;
                 let task =

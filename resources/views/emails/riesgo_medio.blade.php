@@ -7,7 +7,6 @@
     <title>riesgo</title>
 </head>
 <body>
-    <h1>Riesgo Medio</h1>
-    -> configurar plantilla
+    <img src="https://i.ibb.co/MC2vXvx/email-riesgo-medio.png" alt="" style="width:100%">
 </body>
 </html>
