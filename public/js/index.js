@@ -224,7 +224,7 @@ document.addEventListener(
             for (let i = 0; i <= nsteps; i++) {
                 if (
                     !task1 ||
-                    (task1?.label !== "Hombre" && i !== 26) ||
+                    (task1?.label == "Hombre" && i !== 26) ||
                     !task4 ||
                     (task4?.label !== "No" && i !== 4)
                 )
@@ -241,7 +241,7 @@ document.addEventListener(
 
                 if (
                     !task1 ||
-                    (task1?.label !== "Hombre" && i !== 26) ||
+                    (task1?.label == "Hombre" && i !== 26) ||
                     !task4 ||
                     (task4?.label !== "No" && i !== 4)
                 )
