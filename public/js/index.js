@@ -271,9 +271,11 @@ document.addEventListener(
                 let template = 1;
 
                 Object.entries(obj).map((stp) => {
-                    points = points + parseInt(stp[1].point);
+                    console.log("line 274: ", stp[1].point);
+                    if (typeof stp[1].point !== "undefined")
+                        points = points + parseInt(stp[1].point);
                 });
-                console.log(points)
+                console.log("line 277: ", points);
                 //la variable {genero} viene con Hombre o Mujer
                 let genero = null;
                 let task =
