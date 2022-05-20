@@ -232,9 +232,9 @@ document.addEventListener(
 
             let vforms = true;
             for (let i = 0; i <= nsteps; i++) {
-                if (!task4 || (task4?.label !== "No" && i !== 4)) {
+                /* if (!task4 || (task4?.label !== "No" && i !== 4)) {
                     if (!Object.keys(obj["step_" + i]).length) vforms = false;
-                }
+                } */
 
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
                 if (!task4 || (task4?.label == "No" && i == 4)) break;
