@@ -92,7 +92,7 @@ document.addEventListener(
                 task9 == "10°"
             ) {
                 if (age >= 6 || age <= 10) {
-                    alert("sebas sumele");
+                    console.log("rezago educativo si")
                     //points = points + 1
                 }
             }
