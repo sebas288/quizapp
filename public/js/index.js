@@ -222,15 +222,12 @@ document.addEventListener(
                 add = add + 1;
 
             for (let i = 0; i <= nsteps; i++) {
-                if (
-                    !task1 ||
-                    (task1?.label == "Hombre" && i !== 26) ||
-                    !task4 ||
-                    (task4?.label !== "No" && i !== 4)
-                )
-                    obj["step_" + i] = window.localStorage.getItem("step_" + i)
-                        ? JSON.parse(window.localStorage.getItem("step_" + i))
-                        : {};
+                if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
+                if (!task4 || (task4?.label !== "No" && i !== 4)) break;
+
+                obj["step_" + i] = window.localStorage.getItem("step_" + i)
+                    ? JSON.parse(window.localStorage.getItem("step_" + i))
+                    : {};
             }
 
             let vforms = true;
@@ -239,21 +236,17 @@ document.addEventListener(
                     if (!Object.keys(obj["step_" + i]).length) vforms = false;
                 }
 
-                if (
-                    !task1 ||
-                    (task1?.label == "Hombre" && i !== 26) ||
-                    !task4 ||
-                    (task4?.label !== "No" && i !== 4)
-                )
-                    if (!Object.keys(obj["step_" + i]).length) {
-                        //validación final cuando es mujer
-                        if (
-                            task1?.label == "Hombre" &&
-                            i !== 5 &&
-                            !Object.keys(obj["step_" + 5]).length
-                        )
-                            vforms = false;
-                    }
+                if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
+                if (!task4 || (task4?.label !== "No" && i !== 4)) break;
+                if (!Object.keys(obj["step_" + i]).length) {
+                    //validación final cuando es mujer
+                    if (
+                        task1?.label == "Hombre" &&
+                        i !== 5 &&
+                        !Object.keys(obj["step_" + 5]).length
+                    )
+                        vforms = false;
+                }
             }
 
             if (vforms) {
