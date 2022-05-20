@@ -223,7 +223,7 @@ document.addEventListener(
 
             for (let i = 0; i <= nsteps; i++) {
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
-                if (!task4 || (task4?.label !== "No" && i !== 4)) break;
+                if (!task4 || (task4?.label == "No" && i == 4)) break;
 
                 obj["step_" + i] = window.localStorage.getItem("step_" + i)
                     ? JSON.parse(window.localStorage.getItem("step_" + i))
@@ -237,7 +237,7 @@ document.addEventListener(
                 }
 
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
-                if (!task4 || (task4?.label !== "No" && i !== 4)) break;
+                if (!task4 || (task4?.label == "No" && i == 4)) break;
                 if (!Object.keys(obj["step_" + i]).length) {
                     //validación final cuando es mujer
                     if (
