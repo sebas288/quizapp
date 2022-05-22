@@ -76,6 +76,7 @@ document.addEventListener(
             send_data_content.classList.add("d-none");
 
             let points = boxemail.points;
+            let rezago = "NO";
             //obtener el id en loclastorade de la pregunta 9
             const task9 = window.localStorage.getItem("step_9")
                 ? JSON.parse(window.localStorage.getItem("step_9"))?.label
@@ -90,6 +91,7 @@ document.addEventListener(
                     console.log("No tiene rezago en transición, puntaje 0");
                 } else {
                     points = points + 1;
+                    rezago = "SI";
                     console.log("Tiene rezago en transición, puntaje + 1");
                 }
             }
@@ -104,6 +106,7 @@ document.addEventListener(
                     console.log("No tiene rezago en primaria, puntaje 0");
                 } else {
                     points = points + 1;
+                    rezago = "SI";
                     console.log("Tiene rezago en primaria, puntaje + 1");
                 }
             }
@@ -116,8 +119,11 @@ document.addEventListener(
                 if (age >= 11 && age <= 14) {
                     console.log("No tiene rezago en secundaria, puntaje 0");
                 } else {
+                    console.log("after points", points);
                     points = points + 1;
+                    rezago = "SI";
                     console.log("Tiene rezago en secundaria, puntaje + 1");
+                    console.log("before points", points);
                 }
             }
             if (task9 == "10°" || task9 == "11°") {
@@ -126,12 +132,13 @@ document.addEventListener(
                     //points = points + 1
                 } else {
                     points = points + 1;
+                    rezago = "SI";
                     console.log("Tiene rezago en media, puntaje + 1");
                 }
             }
 
             // Se realiza la validación de la edad vs el grado educativo, si no se cumple el rezago suma 1 punto
-            let rezago = 1;
+
             let genero = null;
             let task =
                 JSON.parse(window.localStorage.getItem("step_0")) ?? null;
@@ -184,6 +191,12 @@ document.addEventListener(
                 .getElementById("sendemail-content")
                 .classList.remove("d-none");
             //alert("venteke");
+            const newBoxEmail = {
+                ...boxemail,
+                points: points,
+                rezago: rezago
+            }
+            window.localStorage.setItem("boxemail", JSON.stringify(newBoxEmail))
         }
         if (event.target.matches(".endBackend")) {
             event.preventDefault();
@@ -474,7 +487,7 @@ function httpPost(request, url) {
                 });
             document.getElementById("endBackend").style.display = "block";
             document.getElementById("loading").innerHTML =
-                "<p class='text-center'>Gracias por participar , Gracias por participar , dale clic en ver respuesta para conocer el resultado</p>";
+                "<p class='text-center'>Gracias por participar , dale clic en ver respuesta para conocer el resultado</p>";
 
             document.getElementById("see_responses").classList.remove("d-none");
             //window.localStorage.clear();
