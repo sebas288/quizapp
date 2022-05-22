@@ -84,18 +84,59 @@ document.addEventListener(
             const dateAge = $("#date").val();
             const age = Edad(dateAge);
             //hacemos el if o la estrucruda condicional y sumamos el punto a points
+            console.log("Edad", age);
+            if (
+                task9 == "0°"
+            ) {
+                if (age = 5) {
+                    console.log("No tiene rezago en transición, puntaje 0");
+                }else{
+                    points = points + 1;
+                    console.log("Tiene rezago en transición, puntaje + 1");
+                }
+            }
+            if (
+                task9 == "1°" ||
+                task9 == "2°" ||
+                task9 == "3°" ||
+                task9 == "4°" ||
+                task9 == "5°"
+            ) {
+                if (age >= 6 && age <= 10) {
+                    console.log("No tiene rezago en primaria, puntaje 0")
+                }else{
+                    points = points + 1;
+                    console.log("Tiene rezago en primaria, puntaje + 1");
+                }
+            }
             if (
                 task9 == "6°" ||
                 task9 == "7°" ||
                 task9 == "8°" ||
-                task9 == "9°" ||
-                task9 == "10°"
+                task9 == "9°"
             ) {
-                if (age >= 6 || age <= 10) {
-                    console.log("rezago educativo si")
-                    //points = points + 1
+                if (age >= 11 && age <= 14) {
+                    console.log("No tiene rezago en secundaria, puntaje 0")
+                }else{
+                    points = points + 1;
+                    console.log("Tiene rezago en secundaria, puntaje + 1");
                 }
             }
+            if (
+                task9 == "10°" ||
+                task9 == "11°"
+            ) {
+                if (age >= 15 && age <= 16) {
+                    console.log("No tiene rezago en media, puntaje 0")
+                    //points = points + 1
+                }else{
+                    points = points + 1;
+                    console.log("Tiene rezago en media, puntaje + 1");
+                }
+            }
+
+            // Se realiza la validación de la edad vs el grado educativo, si no se cumple el rezago suma 1 punto
+            let rezago = 1;
             let genero = null;
             let task =
                 JSON.parse(window.localStorage.getItem("step_0")) ?? null;
