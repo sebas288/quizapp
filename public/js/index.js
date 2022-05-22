@@ -85,12 +85,10 @@ document.addEventListener(
             const age = Edad(dateAge);
             //hacemos el if o la estrucruda condicional y sumamos el punto a points
             console.log("Edad", age);
-            if (
-                task9 == "0°"
-            ) {
-                if (age = 5) {
+            if (task9 == "0°") {
+                if ((age = 5)) {
                     console.log("No tiene rezago en transición, puntaje 0");
-                }else{
+                } else {
                     points = points + 1;
                     console.log("Tiene rezago en transición, puntaje + 1");
                 }
@@ -103,8 +101,8 @@ document.addEventListener(
                 task9 == "5°"
             ) {
                 if (age >= 6 && age <= 10) {
-                    console.log("No tiene rezago en primaria, puntaje 0")
-                }else{
+                    console.log("No tiene rezago en primaria, puntaje 0");
+                } else {
                     points = points + 1;
                     console.log("Tiene rezago en primaria, puntaje + 1");
                 }
@@ -116,20 +114,17 @@ document.addEventListener(
                 task9 == "9°"
             ) {
                 if (age >= 11 && age <= 14) {
-                    console.log("No tiene rezago en secundaria, puntaje 0")
-                }else{
+                    console.log("No tiene rezago en secundaria, puntaje 0");
+                } else {
                     points = points + 1;
                     console.log("Tiene rezago en secundaria, puntaje + 1");
                 }
             }
-            if (
-                task9 == "10°" ||
-                task9 == "11°"
-            ) {
+            if (task9 == "10°" || task9 == "11°") {
                 if (age >= 15 && age <= 16) {
-                    console.log("No tiene rezago en media, puntaje 0")
+                    console.log("No tiene rezago en media, puntaje 0");
                     //points = points + 1
-                }else{
+                } else {
                     points = points + 1;
                     console.log("Tiene rezago en media, puntaje + 1");
                 }
@@ -263,6 +258,7 @@ document.addEventListener(
                 add = add + 1;
 
             for (let i = 0; i <= nsteps; i++) {
+                console.log(task1, i);
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
                 //if (!task4 || (task4?.label == "No" && i == 4)) break;
 
@@ -273,6 +269,7 @@ document.addEventListener(
 
             let vforms = true;
             for (let i = 0; i <= nsteps; i++) {
+                console.log(task1, i);
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
                 //if (!task4 || (task4?.label == "No" && i == 4)) break;
                 if (!Object.keys(obj["step_" + i]).length) {
@@ -434,7 +431,7 @@ function bussineRules(rule, step) {
             if (task1 && task1?.label == "Hombre" && parseInt(step) == 25)
                 add = 2;
 
-            return { add: add, less, next: true };
+            return { add: add, less, next: add == 2 ? true : false };
         case "tienes_hijos":
             const task4 = window.localStorage.getItem("step_4")
                 ? JSON.parse(window.localStorage.getItem("step_4"))
