@@ -431,8 +431,8 @@ function bussineRules(rule, step) {
                 ? JSON.parse(window.localStorage.getItem("step_0"))
                 : { label: null };
             if (
-                task1?.label == "Hombre" ||
-                (task1?.label == "other" && parseInt(step) == 25)
+                (task1?.label == "Hombre" || task1?.label == "other") &&
+                parseInt(step) == 25
             )
                 add = 2;
 
