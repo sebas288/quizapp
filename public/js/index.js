@@ -379,6 +379,8 @@ document.addEventListener(
                 less = tienes_hijos?.less;
             }
 
+            console.log("****** ", menstruacion, step);
+
             if (menstruacion?.next && parseInt(step) == 25)
                 $(".end-questions").click();
 
@@ -428,10 +430,13 @@ function bussineRules(rule, step) {
             const task1 = window.localStorage.getItem("step_0")
                 ? JSON.parse(window.localStorage.getItem("step_0"))
                 : { label: null };
-            if (task1 && task1?.label == "Hombre" && parseInt(step) == 25)
+            if (
+                task1?.label == "Hombre" ||
+                (task1?.label == "other" && parseInt(step) == 25)
+            )
                 add = 2;
 
-            return { add: add, less, next: add == 2 ? true : false };
+            return { add: add, less, next: add === 2 ? true : false };
         case "tienes_hijos":
             const task4 = window.localStorage.getItem("step_4")
                 ? JSON.parse(window.localStorage.getItem("step_4"))
