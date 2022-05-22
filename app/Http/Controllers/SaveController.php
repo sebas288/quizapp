@@ -26,6 +26,7 @@ class SaveController extends Controller
         $test->dni = $request->dni;
         $test->fnac = $request->date;
         $test->email = $request->email;
+        $test->rezago = $request->rezago;
         $test->questions = json_encode([
             "email" => $request->email,
             "finalData" => $request->finalData,
@@ -128,6 +129,7 @@ class SaveController extends Controller
                 "barrio" => $qt->barrio,
                 "institucion" => $qt->institucion,
                 "other" => $qt->other,
+                "rezago" => $qt->rezago,
                 "questions" => json_decode($qt->questions),
             ]);
         }
