@@ -67,137 +67,6 @@ document.addEventListener(
             httpPost(JSON.stringify(backData), "/api/sendmail");
         }
         //request back
-        //end questions
-        if (event.target.matches(".see_responses")) {
-            event.preventDefault();
-            const boxemail = JSON.parse(
-                window.localStorage.getItem("boxemail")
-            );
-            send_data_content.classList.add("d-none");
-
-            let points = boxemail.points;
-            let rezago = "NO";
-            //obtener el id en loclastorade de la pregunta 9
-            const task9 = window.localStorage.getItem("step_9")
-                ? JSON.parse(window.localStorage.getItem("step_9"))?.label
-                : null;
-            //obtener el id y elemento de la pregunta de la edad
-            const dateAge = $("#date").val();
-            const age = Edad(dateAge);
-            //hacemos el if o la estrucruda condicional y sumamos el punto a points
-            console.log("Edad", age);
-            if (task9 == "0°") {
-                if ((age = 5)) {
-                    console.log("No tiene rezago en transición, puntaje 0");
-                } else {
-                    points = points + 1;
-                    rezago = "SI";
-                    console.log("Tiene rezago en transición, puntaje + 1");
-                }
-            }
-            if (
-                task9 == "1°" ||
-                task9 == "2°" ||
-                task9 == "3°" ||
-                task9 == "4°" ||
-                task9 == "5°"
-            ) {
-                if (age >= 6 && age <= 10) {
-                    console.log("No tiene rezago en primaria, puntaje 0");
-                } else {
-                    points = points + 1;
-                    rezago = "SI";
-                    console.log("Tiene rezago en primaria, puntaje + 1");
-                }
-            }
-            if (
-                task9 == "6°" ||
-                task9 == "7°" ||
-                task9 == "8°" ||
-                task9 == "9°"
-            ) {
-                if (age >= 11 && age <= 14) {
-                    console.log("No tiene rezago en secundaria, puntaje 0");
-                } else {
-                    console.log("after points", points);
-                    points = points + 1;
-                    rezago = "SI";
-                    console.log("Tiene rezago en secundaria, puntaje + 1");
-                    console.log("before points", points);
-                }
-            }
-            if (task9 == "10°" || task9 == "11°") {
-                if (age >= 15 && age <= 16) {
-                    console.log("No tiene rezago en media, puntaje 0");
-                    //points = points + 1
-                } else {
-                    points = points + 1;
-                    rezago = "SI";
-                    console.log("Tiene rezago en media, puntaje + 1");
-                }
-            }
-
-            // Se realiza la validación de la edad vs el grado educativo, si no se cumple el rezago suma 1 punto
-
-            let genero = null;
-            let task =
-                JSON.parse(window.localStorage.getItem("step_0")) ?? null;
-            if (task) genero = task.label;
-            switch (true) {
-                case points <= 7: //riesgo bajo
-                    document
-                        .getElementById("resp_2")
-                        .classList.remove("d-none");
-                    if (genero == "Hombre") {
-                        template = 0;
-                    } else {
-                        template = 0;
-                    }
-                    break;
-                case points <= 14: //riesgo medio
-                    document
-                        .getElementById("resp_1")
-                        .classList.remove("d-none");
-                    if (genero == "Hombre") {
-                        template = 1;
-                    } else {
-                        template = 1;
-                    }
-                    break;
-                case points <= 26: //riesgo alto
-                    document
-                        .getElementById("resp_0")
-                        .classList.remove("d-none");
-                    if (genero == "Hombre") {
-                        template = 2;
-                    } else {
-                        template = 2;
-                    }
-                    break;
-
-                default:
-                    template = 1;
-                    break;
-            }
-
-            if (genero == "Hombre") {
-                selectGenero("men");
-            } else if (genero == "Mujer") {
-                selectGenero("woman");
-            } else {
-                selectGenero("otro");
-            }
-            document
-                .getElementById("sendemail-content")
-                .classList.remove("d-none");
-            //alert("venteke");
-            const newBoxEmail = {
-                ...boxemail,
-                points: points,
-                rezago: rezago
-            }
-            window.localStorage.setItem("boxemail", JSON.stringify(newBoxEmail))
-        }
         if (event.target.matches(".endBackend")) {
             event.preventDefault();
             //loading btn
@@ -252,6 +121,11 @@ document.addEventListener(
                 dni: dni,
                 email: email,
             };
+            const { points, rezago, template } = handleRulesAndValues(dataBack);
+            dataBack["points"] = points;
+            dataBack["rezago"] = rezago;
+            dataBack["template"] = template;
+
             window.localStorage.setItem("boxemail", JSON.stringify(dataBack));
             httpPost(JSON.stringify(dataBack), "/api/test");
         }
@@ -271,7 +145,6 @@ document.addEventListener(
                 add = add + 1;
 
             for (let i = 0; i <= nsteps; i++) {
-                console.log(task1, i);
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
                 //if (!task4 || (task4?.label == "No" && i == 4)) break;
 
@@ -282,7 +155,6 @@ document.addEventListener(
 
             let vforms = true;
             for (let i = 0; i <= nsteps; i++) {
-                console.log(task1, i);
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
                 //if (!task4 || (task4?.label == "No" && i == 4)) break;
                 if (!Object.keys(obj["step_" + i]).length) {
@@ -311,11 +183,9 @@ document.addEventListener(
                 let template = 1;
 
                 Object.entries(obj).map((stp) => {
-                    console.log("line 274: ", stp[1].point);
                     if (typeof stp[1].point !== "undefined")
                         points = points + parseInt(stp[1].point);
                 });
-                console.log("line 277: ", points);
                 //la variable {genero} viene con Hombre o Mujer
                 let genero = null;
                 let task =
@@ -391,8 +261,6 @@ document.addEventListener(
                 add = tienes_hijos?.add;
                 less = tienes_hijos?.less;
             }
-
-            console.log("****** ", menstruacion, step);
 
             if (menstruacion?.next && parseInt(step) == 25)
                 $(".end-questions").click();
@@ -563,4 +431,98 @@ function validateEmail(email) {
         return false;
     }
     return true;
+}
+
+function handleRulesAndValues(data) {
+    const boxemail = data;
+    send_data_content.classList.add("d-none");
+
+    let points = boxemail.points;
+    let rezago = "NO";
+    //obtener el id en loclastorade de la pregunta 9
+    const task9 = window.localStorage.getItem("step_9")
+        ? JSON.parse(window.localStorage.getItem("step_9"))?.label
+        : null;
+    //obtener el id y elemento de la pregunta de la edad
+    const dateAge = $("#date").val();
+    const age = Edad(dateAge);
+    //hacemos el if o la estrucruda condicional y sumamos el punto a points
+    if (task9 == "0°")
+        if (age !== 5) {
+            points = points + 1;
+            rezago = "SI";
+        }
+
+    if (
+        task9 == "1°" ||
+        task9 == "2°" ||
+        task9 == "3°" ||
+        task9 == "4°" ||
+        task9 == "5°"
+    ) {
+        if (age >= 6 && age <= 10) {
+        } else {
+            points = points + 1;
+            rezago = "SI";
+        }
+    }
+    if (task9 == "6°" || task9 == "7°" || task9 == "8°" || task9 == "9°") {
+        if (age >= 11 && age <= 14) {
+        } else {
+            points = points + 1;
+            rezago = "SI";
+        }
+    }
+    if (task9 == "10°" || task9 == "11°") {
+        if (age >= 15 && age <= 16) {
+        } else {
+            points = points + 1;
+            rezago = "SI";
+        }
+    }
+
+    let genero = null;
+    let template = 0;
+    let task = JSON.parse(window.localStorage.getItem("step_0")) ?? null;
+    if (task) genero = task.label;
+    switch (true) {
+        case points <= 7: //riesgo bajo
+            document.getElementById("resp_2").classList.remove("d-none");
+            //if (genero == "Hombre") template = 1;
+            template = 0;
+            break;
+        case points <= 14: //riesgo medio
+            document.getElementById("resp_1").classList.remove("d-none");
+            template = 1;
+            break;
+        case points <= 26: //riesgo alto
+            document.getElementById("resp_0").classList.remove("d-none");
+            template = 2;
+            break;
+
+        default:
+            break;
+    }
+
+    if (genero == "Hombre") {
+        selectGenero("men");
+    } else if (genero == "Mujer") {
+        selectGenero("woman");
+    } else {
+        selectGenero("otro");
+    }
+    document.getElementById("sendemail-content").classList.remove("d-none");
+    const newBoxEmail = {
+        ...boxemail,
+        points: points,
+        rezago: rezago,
+        template: template,
+    };
+    window.localStorage.setItem("boxemail", JSON.stringify(newBoxEmail));
+
+    return {
+        points,
+        rezago,
+        template,
+    };
 }
