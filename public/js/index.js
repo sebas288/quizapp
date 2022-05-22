@@ -427,11 +427,11 @@ function bussineRules(rule, step) {
     let less = 1;
     switch (rule) {
         case "menstruacion":
-            const task1 = window.localStorage.getItem("step_0")
+            const task0 = window.localStorage.getItem("step_0")
                 ? JSON.parse(window.localStorage.getItem("step_0"))
                 : { label: null };
             if (
-                (task1?.label == "Hombre" || task1?.label == "other") &&
+                (task0?.label == "Hombre" || task0?.label == "Otro") &&
                 parseInt(step) == 25
             )
                 add = 2;
