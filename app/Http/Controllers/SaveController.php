@@ -114,7 +114,7 @@ class SaveController extends Controller
     }
 
     public function show() {
-        $test = Test::select('id','tdni','dni','fnac','email','nombre','celular','comunas','barrio','institucion','other','questions')->get();
+        $test = Test::select('id','tdni','dni','fnac','email','nombre','celular','comunas','barrio','institucion','other','rezago','questions')->get();
         $data = [];
         foreach ($test as $qt) {
             array_push($data, [
