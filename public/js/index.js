@@ -145,28 +145,24 @@ document.addEventListener(
                 add = add + 1;
 
             for (let i = 0; i <= nsteps; i++) {
-                if (!window.localStorage.getItem("step_" + i)) break;
-                if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
-
-                obj["step_" + i] = window.localStorage.getItem("step_" + i)
-                    ? JSON.parse(window.localStorage.getItem("step_" + i))
-                    : {};
+                if (window.localStorage.getItem("step_" + i))
+                    obj["step_" + i] = window.localStorage.getItem("step_" + i)
+                        ? JSON.parse(window.localStorage.getItem("step_" + i))
+                        : {};
             }
 
             let vforms = true;
             for (let i = 0; i <= nsteps; i++) {
-                if (!window.localStorage.getItem("step_" + i)) break;
-                if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
-
-                if (!Object.keys(obj["step_" + i]).length) {
-                    //validación final cuando es mujer
-                    if (
-                        task1?.label == "Hombre" &&
-                        i !== 5 &&
-                        !Object.keys(obj["step_" + 5]).length
-                    )
-                        vforms = false;
-                }
+                if (window.localStorage.getItem("step_" + i))
+                    if (!Object.keys(obj["step_" + i]).length) {
+                        //validación final cuando es mujer
+                        if (
+                            task1?.label == "Hombre" &&
+                            i !== 5 &&
+                            !Object.keys(obj["step_" + 5]).length
+                        )
+                            vforms = false;
+                    }
             }
 
             if (vforms) {
@@ -184,7 +180,7 @@ document.addEventListener(
                 let template = 1;
 
                 Object.entries(obj).map((stp) => {
-                    if (typeof stp[1].point !== "undefined")
+                    if (typeof stp[1]?.point !== "undefined")
                         points = points + parseInt(stp[1].point);
                 });
                 //la variable {genero} viene con Hombre o Mujer
