@@ -145,8 +145,8 @@ document.addEventListener(
                 add = add + 1;
 
             for (let i = 0; i <= nsteps; i++) {
+                if (!window.localStorage.getItem("step_" + i)) break;
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
-                //if (!task4 || (task4?.label == "No" && i == 4)) break;
 
                 obj["step_" + i] = window.localStorage.getItem("step_" + i)
                     ? JSON.parse(window.localStorage.getItem("step_" + i))
@@ -155,8 +155,9 @@ document.addEventListener(
 
             let vforms = true;
             for (let i = 0; i <= nsteps; i++) {
+                if (!window.localStorage.getItem("step_" + i)) break;
                 if (!task1 || (task1?.label == "Hombre" && i == 26)) break;
-                //if (!task4 || (task4?.label == "No" && i == 4)) break;
+
                 if (!Object.keys(obj["step_" + i]).length) {
                     //validación final cuando es mujer
                     if (
@@ -256,10 +257,24 @@ document.addEventListener(
 
             const menstruacion = bussineRules("menstruacion", step);
             const tienes_hijos = bussineRules("tienes_hijos", step);
-            if (menstruacion) add = menstruacion?.add;
-            if (tienes_hijos) {
+            const has_tenido_relaciones_sexuales = bussineRules(
+                "has_tenido_relaciones_sexuales",
+                step
+            );
+            const preservativo = bussineRules("preservativo", step);
+
+            if (has_tenido_relaciones_sexuales) {
+                add = has_tenido_relaciones_sexuales?.add;
+                less = has_tenido_relaciones_sexuales?.less;
+            }
+            if (menstruacion && step == 26) add = menstruacion?.add;
+            if (tienes_hijos && (step == 4 || step == 6)) {
                 add = tienes_hijos?.add;
                 less = tienes_hijos?.less;
+            }
+            if (preservativo && (step == 11 || step == 13)) {
+                add = preservativo?.add;
+                less = preservativo?.less;
             }
 
             if (menstruacion?.next && parseInt(step) == 25)
@@ -304,26 +319,38 @@ selectedSteps = [
 ];
 
 function bussineRules(rule, step) {
+    const task0 = window.localStorage.getItem("step_0")
+        ? JSON.parse(window.localStorage.getItem("step_0"))
+        : { label: null };
+    const task1 = window.localStorage.getItem("step_1")
+        ? JSON.parse(window.localStorage.getItem("step_1"))
+        : { label: null };
+    const task4 = window.localStorage.getItem("step_4")
+        ? JSON.parse(window.localStorage.getItem("step_4"))
+        : { label: null };
+
     let add = 1;
     let less = 1;
+
     switch (rule) {
         case "menstruacion":
-            const task0 = window.localStorage.getItem("step_0")
-                ? JSON.parse(window.localStorage.getItem("step_0"))
-                : { label: null };
             if (
                 (task0?.label == "Hombre" || task0?.label == "Otro") &&
                 parseInt(step) == 25
             )
                 add = 2;
-
             return { add: add, less, next: add === 2 ? true : false };
         case "tienes_hijos":
-            const task4 = window.localStorage.getItem("step_4")
-                ? JSON.parse(window.localStorage.getItem("step_4"))
-                : { label: null };
-            if (task4 && task4?.label == "No" && parseInt(step) == 4) add = 2;
-            if (task4 && task4?.label == "No" && parseInt(step) == 6) less = 2;
+            if (task4?.label == "No" && parseInt(step) == 4) add = 2;
+            if (task4?.label == "No" && parseInt(step) == 6) less = 2;
+            return { add: add, less, next: true };
+        case "has_tenido_relaciones_sexuales":
+            if (task1?.label == "No" && parseInt(step) == 1) add = 2;
+            if (task1?.label == "No" && parseInt(step) == 3) less = 2;
+            return { add: add, less, next: true };
+        case "preservativo":
+            if (task1?.label == "No" && parseInt(step) == 11) add = 2;
+            if (task1?.label == "No" && parseInt(step) == 13) less = 2;
             return { add: add, less, next: true };
 
         default:
