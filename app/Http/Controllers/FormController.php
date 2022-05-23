@@ -587,7 +587,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p class='text-left'>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
+                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p class='text-left'>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; las pastillas , inyecciones, parche, implante subdérmico, condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s13",
@@ -680,7 +680,7 @@ class FormController extends Controller
                 "show" => "d-none",
                 "btnEnd" => false,
                 "changeSteps" => true,
-                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p class='text-left'>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; condón, las pastillas , inyecciones, parche, implante subdérmico condón (Masculino y femenino) , entre otros. </p>",
+                "description" => "<p class='text-left'>¿ Qué es un método anticonceptivo ?</p><p class='text-left'>Son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Por ejemplo; las pastillas , inyecciones, parche, implante subdérmico, condón (Masculino y femenino) , entre otros. </p>",
                 "fields" => [
                     [
                         "field" => "a1s17",
