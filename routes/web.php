@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', "FormController@index");
+Route::get('/test', "TestController@test");

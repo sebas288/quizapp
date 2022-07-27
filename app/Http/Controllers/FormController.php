@@ -1006,7 +1006,7 @@ class FormController extends Controller
             [//riesgo alto que se muestra en el front
                 "genero" => true,
                 "titulo" => ["<h1>Camilo</h1>","<h1>Camila</h1>", "<h1>Cami</h1>"], //riesgo alto
-                "image" => ["/images/camilo_alto.png", "/images/camila_alto.png", "/images/riesgo_alto.png"],
+                "image" => ["/yodecido/images/camilo_alto.png", "/yodecido/images/camila_alto.png", "/yodecido/images/riesgo_alto.png"],
                 "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un alto riesgo de un embarazo adolescente, pero ¡¡¡ANIMO!!!, Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de oferta para la Prevención  de  Embarazo  Adolescente  y  a  conectarte  con  la  línea  amiga  en  Salud 3007231123  </p>
                 <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en alto riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
                 <p>Si  eres  menor  de  14  años  recuerda  que  un  embarazo  a  tan  temprana  edad  es considerado por ley delito, por ello tienen unos derechos especiales que puedes consultar con un profesional en salud.</p>",
@@ -1032,7 +1032,7 @@ class FormController extends Controller
             [//riesgo medio
                 "genero" => true,
                 "titulo" => ["<h1>Andres</h1>","<h1>Andrea</h1>", "<h1>Andy</h1>"], //riesgo medio
-                "image" => ["/images/andres_medio.png", "/images/andrea_medio.png", "/images/riesgo_medio.png"],
+                "image" => ["/yodecido/images/andres_medio.png", "/yodecido/images/andrea_medio.png", "/yodecido/images/riesgo_medio.png"],
                 "texto" => "<p>Tu vida viene desarrollándose en un contexto económico, social y cultural que te expone a un riesgo medio de un embarazo adolescente, pero ¡¡¡ANIMO!!!Tu eres muy inteligente y  sabes  que  con  acceso  a  métodos  de  anticoncepción  y  un  proyecto  de  vida  claro,  tú DECIDES tu futuro, a continuación, te invitamos a conocer el directorio de Prevención de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123 </p>
                 <p>Es  importante  seguir  estas  recomendaciones  y  empoderarse  de  tu  futuro,  pues  Los padres y Las madres en la adolescencia reciben menos salario y tienen mayor tasa de desempleo, además están en riesgo de abandonar o postergar sus estudios, y muy pocos logran culminar una formación universitaria.  </p>
                 ",
@@ -1058,7 +1058,7 @@ class FormController extends Controller
             [//riesgo bajo
                 "genero" => true,
                 "titulo" => ["<h1>Diego</h1>","<h1>Erika</h1>", "<h1>Dany</h1>"], //riesgo bajo
-                "image" => ["/images/diego_bajo.png", "/images/erika_bajo.png", "/images/riesgo_bajo.png"],
+                "image" => ["/yodecido/images/diego_bajo.png", "/yodecido/images/erika_bajo.png", "/yodecido/images/riesgo_bajo.png"],
                 "texto" => "<p>Al estar en un riesgo bajo de un embarazo adolescente tienes una gran posibilidad de terminar una carrera universitaria, un postgrado, devengar un buen salario, sin embargo, no te confíes , siempre es necesario consultar un profesional de la salud y tener metas y sueños  claros,  te  invitamos  a  conocer  el  directorio  de  oferta  para  la  Prevención  de Embarazo Adolescente y a conectarte con la línea amiga en Salud 3007231123. </p>
                 ",
                 "recordatorio" => "<h1>Y RECUERDA NO CREAS EN MITOS</h1>",

@@ -90,7 +90,7 @@ class SaveController extends Controller
     {
         try {
             Mail::send($plantilla, $data, function($msj) use($destinatario, $copia, $asunto){
-                $msj->from("yodecidocuando@medellin.gov.co","Yo decido");
+                $msj->from("japersa92@gmail.com","Yo decido");
                 $msj->subject($asunto);
                 $msj->to($destinatario);
                 /* ->bcc($copia); */

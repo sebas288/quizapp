@@ -5,7 +5,7 @@
     <div class="container" id="terms">
         <div class="row justify-content-center m-5">
             <div class="col-md-4 d-flex align-items-center">
-                    <img src="images/start.png" alt="" width="100%">
+                    <img src="{{asset('/yodecido/images/start.png')}}" alt="" width="100%">
             </div>
         </div>
         <div class="text-left m-4">
