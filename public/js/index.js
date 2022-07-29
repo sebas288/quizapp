@@ -64,7 +64,7 @@ document.addEventListener(
                 ...JSON.parse(window.localStorage.getItem("boxemail")),
                 email: mail,
             };
-            httpPost(JSON.stringify(backData), "/api/sendmail");
+            httpPost(JSON.stringify(backData), "/yodecido/api/sendmail");
         }
         //request back
         if (event.target.matches(".endBackend")) {
@@ -127,7 +127,7 @@ document.addEventListener(
             dataBack["template"] = template;
 
             window.localStorage.setItem("boxemail", JSON.stringify(dataBack));
-            httpPost(JSON.stringify(dataBack), "/api/test");
+            httpPost(JSON.stringify(dataBack), "/yodecido/api/test");
         }
         const obj = {};
         //end questions
